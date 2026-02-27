@@ -1,20 +1,343 @@
 <!DOCTYPE html>
 <html lang="ro">
-    <head>
-        <meta charset="UTF-8">
-        <title>GearLab</title>
-    </head>
-    <body>
-        <header>
-            <h1>GearLab</h1>
-        </header>
-        <main>
-            <p>GearLab este o platforma de resell pentru periferice. Rolul nostru este de a oferi cele mai noi tastaturi, mouseuri si casti la cele mai accesibile preturi de pe piata, concurand cu platforme precum Emag, Altex sau Flanco.</p>
-            <h2>Ce oferim?</h2>
-                <p>Platforma noastra pune la dispozitie o suita de produse, de la branduri premium precum Logitech, Razer, SteelSeries pana la branduri accesibile precum Logi, Aqyris sau HP</p>
-        </main>
-        <footer>
-            <p>Copyright &copy; 2020 Ionel Popescu</p>
-        </footer>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Vlad Andrei Ciobotenco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Magazisnul GearLab ofera spre vanzare periferic de PC si laptop precum tastarua, mouse, casti si mousepad.">
+    <meta name="keywords"
+        content="PC, laptop, periferice, tastatura, mouse, casti, mousepad, tastatura mecanica, wireless, gaming, office">
+
+    <title>GearLab</title>
+
+    <link rel="icon" type="image/png" href="./Resources/Images/Favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./Resources/Images/Favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./Resources/Images/Favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./Resources/Images/Favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="GearLab" />
+    <link rel="manifest" href="./Resources/Images/Favicon/site.webmanifest" />
+</head>
+
+<body>
+    <header>
+        <h1>GearLab</h1>
+        <nav>
+            <ul>
+                <li>Acasa</li>
+                <ul>
+                    <li><a href="#welcome">Bine ati venit</a></li>
+                    <li><a href="#promotii">Promotii</a></li>
+                    <li><a href="#produse">Produse</a></li>
+                </ul>
+                <li>Despre noi</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="grid-pagina">
+            <section id="welcome">
+                <hgroup>
+                    <h2>Bine ati venit</h2>
+                    <h3 class="subtitlu">Prezentarea magazinului</h3>
+                </hgroup>
+
+                <div class="intro">
+                    <p>Bun venit la <b>GearLab</b> - destinația ta principală pentru performanță și precizie digitală.
+                    </p>
+                    <p>Suntem mai mult decât un simplu magazin; suntem un hub dedicat pasionaților de tehnologie,
+                        gamerilor și profesioniștilor care nu acceptă <strong>compromisuri</strong> atunci când vine
+                        vorba de
+                        echipamentul lor. La <b>GearLab</b>, credem că perifericele potrivite transformă radical modul
+                        în care interacționezi cu universul tău digital. </p>
+                </div>
+
+                <div id="dv-prezentare-1">
+                    <div id="dv-prezentare">
+                        <figure title="Mouse G502">
+                            <picture>
+                                <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                                <source srcset="./resources/images/mouse/LogitechG502(440x330).png"
+                                    media="(max-width:700px)" />
+                                <source srcset="./resources/images/mouse/LogitechG502(768x576).png"
+                                    media="(max-width:1200px)" />
+                                <img src="./resurse/imagini/mouse/LogitechG502.png" alt="text" />
+                            </picture>
+                            <figcaption>Mouse-ul Logitech G502, cel mai bun mouse de gaming</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div>
+                    <p>Mai jos aveti o lista de videoclipuri de prezentare pentru mouse-ul Logitech G502, recomandat de
+                        specialisti si gameri.</p>
+                    <ul>
+                        <li>
+                            <a href="https://www.youtube.com/embed/Vs2oHAPSgbY?si=hfVa2InPM9UUALml"
+                                target="iframe-G502">Prezentare oficiala G502</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/embed/Iek-UH9ZWUw?si=Wdp20IHMkXP3Ezek"
+                                target="iframe-G502">Review Linus Tech Tips</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/embed/Z5MAbMKtfWA?rel=0" target="iframe-G502">Review
+                                CipFlixTV</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
+                    <iframe src="https://www.youtube.com/embed/Z5MAbMKtfWA?rel=0"
+                        style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                        allowfullscreen scrolling="no"
+                        allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                        referrerpolicy="strict-origin" name="iframe-G502">
+                    </iframe>
+                </div>
+
+                <!-- <div id="container-video">
+                    <img style="width:50%" class="farfurie" src="resurse/imagini/farfurie-flori-albastre.png"
+                        alt="farfurie" title="O farfurie cu flori">
+                    <div id="centrare-video">
+                        <div id="clip-video">
+                            <div id="stil-video">
+                                <video width="320" height="240" playsinline autoplay loop muted>
+                                    <source src="resurse/video/Chocolate.mp4" type="video/mp4">
+                                    <source src="resurse/video/Chocolate.ogv" type="video/ogv">
+                                    <track default
+                                        src="data:image/png;base64, V0VCVlRUIC0gQ2lvY29sYXTEgwoKMDA6MDAuMDAwIC0tPiAwMDowMy4wMDAgbGluZTowCkNpb2NvbGF0xIMhISEKCjAwOjAzLjAwMCAtLT4gMDA6MDcuMDAwIGxpbmU6MApNdWx0xIMgY2lvY29sYXTEgyEhISEKCjAwOjA5LjAwMCAtLT4gMDA6MTQuMDAwIGxpbmU6MApVcHMsIGFtIG11cmTEg3JpdCBtYXNhIQoKMDA6MTQuNTAwIC0tPiAwMDoxOS4wMDAgbGluZTowCk51IGNvbnRlYXrEgyEgQ2lvY29sYXTEg8SDxIPEg8SDxIMhCgo="
+                                        kind="captions" srclang="ro" label="romana">
+                                    <track
+                                        src="data:image/png;base64, V0VCVlRUIC0gQ2hvY29sYXRlDQoNCjAwOjAwLjAwMCAtLT4gMDA6MDMuMDAwDQpDaG9jb2xhdGUhISENCg0KMDA6MDMuMDAwIC0tPiAwMDowNy4wMDANCkxvdHMgb2YgY2hvY29sYXRlISEhIQ0KDQowMDowOS4wMDAgLS0+IDAwOjE0LjAwMA0KT3VwcywgdGFibGUgZ290IGRpcnR5IQ0KDQowMDoxNC41MDAgLS0+IDAwOjE5LjAwMA0KRG9lc24ndCBtYXR0ZXIhIENob2NvbGF0ZSEhIQ0KDQo="
+                                        kind="captions" srclang="en" label="engleza">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </section>
+
+            <br><br><br>
+
+            <section id="produse">
+                <h2>Produsele noastre</h2>
+                <p>Magazinul nostru ofera o gama larga de produse de la o multitudine de producatori. Produsele
+                    principale sunt mouse-urile si tastaturile de gaming, dar magazinul distribuie si casti,
+                    mousepad-uri si controllere de console.</p>
+                <section>
+                    <h3>Mouse-uri</h3>
+                    <p>Toata lumea stie ca ai nevoie de un mouse bun pentru performanta la locul de munca sau in jocuri
+                        video, iar noi avem o gama variata din care puteti alege:</p>
+                    <ul>
+                        <li>mouse gaming</li>
+                        <li>mouse office</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Tastaturi</h3>
+                    <p>Se spune ca exista o <em>singura tastatura perfecta pentru fiecare utilizator</em>. Noi speram ca
+                        acea
+                        tastatura sa se afle in depozitul nostru.</p>
+                    <ul>
+                        <li>tastaturi mecanice de gaming</li>
+                        <li>tastaturi cu membrana de gaming</li>
+                        <li>tastaturi mecanice office</li>
+                        <li>tastaturi cu membrana office</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Seturi de casti</h3>
+                    <p>Muzica se aude mult mai bine daca este utilizat un set casti calitative. Noi garantam aceasta
+                        calitate prin obiectele pe care le punem la vanzare.</p>
+                    <ul>
+                        <li>casti over-ear studio</li>
+                        <li>casti over-ear gaming</li>
+                        <li>casti on-ear office</li>
+                        <li>casti on-ear gaming</li>
+                        <li>casti wireless gaming</li>
+                        <li>casti wireless office</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Mousepad-uri</h3>
+                    <p>Precizia oricarui mouse poate fi extinsa cu ajutorul unui mousepad bun.</p>
+                    <ul>
+                        <li>mousepad gaming</li>
+                        <li>mousepad office</li>
+                        <li>mousemat (full desk)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Controllere</h3>
+                    <p>Pasionatii de jocuri pe consola cunosc puterea si precizia unui controller. Acestea sunt
+                        compatibile si pentru PC si laptop.</p>
+                    <ul>
+                        <li>controller Xbox Series X</li>
+                        <li>controller <abbr title="PlayStation 4">PS4</abbr></li>
+                        <li>controller <abbr title="PlayStation 5">PS5</abbr></li>
+                        <li>constroller Nintendo Switch</li>
+                        <li>controller compatibil PC/laptop</li>
+                    </ul>
+                </section>
+            </section>
+
+            <br><br><br>
+
+            <section id="promotii">
+                <h2>Anunturi importante</h2>
+                <div id="stat-tastaturi-mecanice">
+                    <p>Stoc Tastaturi Mecanice (Ediție Limitată):</p>
+                    <meter min="0" max="100" low="30" high="80" optimum="90" value="15">
+                        15%
+                    </meter>
+                    <span> Atenție: Stoc critic (15 unități rămase)!</span>
+                </div>
+                <br>
+                <h2>Promoții și oferte</h2>
+                <article>
+                    Pe parcursul anului, magazinul nostru ofera mai multe oferte pentru iubitorii de periferice in
+                    functie de tendintele consumatorilor. O parte din aceste oferte vizeaza toata produsele, dar
+                    majoritatea sunt pentru categorii specifice. Aveti mai jos ofertele din trecut si predictia pentru
+                    ofertele din viitor.
+                </article>
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Eveniment</th>
+                            <th>Perioada Promoției</th>
+                            <th>Beneficii Incluse</th>
+                            <th>Disponibilitate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Spring Refresh 2026</td>
+                            <td>
+                                <time datetime="2026-03-15">15 Martie</time> -
+                                <time datetime="2026-03-23">23 Martie</time>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Discount de <s>25%</s><ins>30%</ins> la toată gama de tastaturi si mouse-uri
+                                        wireless</li>
+                                </ul>
+                            </td>
+                            <td>Online & Shop</td>
+                        </tr>
+                        <tr>
+                            <td>Christmas Gaming Wonderland 2025</td>
+                            <td>
+                                <time datetime="2025-12-15">15 Decembrie</time> -
+                                <time datetime="2025-12-26">26 Decembrie</time>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Mousepad XL cadou la orice comandă de peste 300 RON</li>
+                                    <li>Reduceri de tip „Flash Sale” de până la 50% în fiecare seară</li>
+                                </ul>
+                            </td>
+                            <td>Stoc Limitat</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; background-color: #f2f2f2;">
+                                <strong>
+                                    Notă: Între campanii, laboratorul trece prin procesul de actualizare astocului.
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Black Friday 2025</td>
+                            <td>
+                                <time datetime="2025-11-21">21 Noiembrie</time> -
+                                <time datetime="2025-11-28">28 Noiembrie</time>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Reduceri de pana la <s>30%</s><ins>40%</ins></li>
+                                    <li>Livrare gratuită la orice tastatură mecanică</li>
+                                </ul>
+                            </td>
+                            <td>Online</td>
+                        </tr>
+                        <tr>
+                            <td>Back to School 2025</td>
+                            <td>
+                                <time datetime="2025-08-25">25 August</time> -
+                                <time datetime="2025-09-10">10 Septembrie</time>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Bundle mouse + tastatura office: -25%</li>
+                                    <li>Mousepad cadou pentru elevi și studenți</li>
+                                </ul>
+                            </td>
+                            <td>Online & Shop</td>
+                        </tr>
+                        <tr>
+                            <td>Easter Sale 2025</td>
+                            <td>
+                                <time datetime="2025-04-15">15 Aprilie</time> -
+                                <time datetime="2025-04-22">22 Aprilie</time>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Vouchere de 50 RON în "ouăle" virtuale</li>
+                                    <li>Accesorii laptop cu reducere progresivă</li>
+                                </ul>
+                            </td>
+                            <td>Online</td>
+                        </tr>
+                    </tbody>
+                    
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Total Campanii Planificate: 5</th>
+                            <th colspan="2">Actualizat la: <time datetime="2026-02-27">27 Februarie 2026</time></th>
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </section>
+
+
+    </main>
+    <!-- <main>
+        <p>GearLab este o platforma de resell pentru periferice. Rolul nostru este de a oferi cele mai noi tastaturi,
+            mouseuri si casti la cele mai accesibile preturi de pe piata, concurand cu platforme precum Emag, Altex sau
+            Flanco.</p>
+        <h2>Ce oferim?</h2>
+        <p>Platforma noastra pune la dispozitie o suita de produse, de la branduri premium precum Logitech, Razer,
+            SteelSeries pana la branduri accesibile precum Logi, Aqyris sau HP</p>
+    </main> -->
+    <br><br><br>
+    <footer>
+        <a href="#welcome">Back to home</a>
+        <br>
+        <section id="contact">
+            <h3>Contact</h3>
+            <p>Numar de telefon: +40770393509</p>
+            <p>Link catre <a href="https://wa.me/10770393509">Whatsapp</a></p>
+            <p>Link catre Email: <a
+                    href="mailto:vlad-andrei.ciobotenco@s.unibuc.ro">vlad-andrei.ciobotenco@s.unibuc.ro</a></p>
+            <br>
+            <p>Adresa sediu: <a
+                    href="https://www.google.com/maps/place/Politehnica+Business+Tower/@44.4340819,26.0382145,17z/data=!3m1!4b1!4m6!3m5!1s0x40b201f609995a6f:0x8a7b024778b7d337!8m2!3d44.4340819!4d26.0407948!16s%2Fg%2F11h5lv2n9y?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D">Bulevardul
+                    Iuliu Maniu 15, București</a></p>
+            <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Politehnica%20Business%20Tower&t=k&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
+
+        </section>
+        <time datetime="2026-02-27">
+            <small>Copyright &copy; 2026 Vlad Andrei Ciobotenco</small>
+        </time>
+    </footer>
+</body>
+
 </html>
