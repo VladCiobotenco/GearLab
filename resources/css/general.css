@@ -1,8 +1,14 @@
 body{
-    --culoare-background: #FCA47C;
-    --margine-pagina: 100px;
+    --color-background: #FDFBF9;
+    --color-main: #2C3E50;
+    --color-accent: #E67E22;
+    --color-secondary: #ECF0F1;
+    --color-text: #34495E;
     --culoare-contur: #F9D779;
+
+    --margine-pagina: 100px;
     --gap-celule: 20px;
+
     background-color: var(--culoare-background)
 }
 
@@ -16,15 +22,35 @@ main{
     margin-right: var(--margine-pagina);
 }
 
+h1, h2, h3 {
+    color: var(--color-main);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 10px;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+table thead th {
+    background-color: var(--color-main);
+    color: white;
+}
+
+details {
+    background-color: var(--color-secondary);
+    border-left: 5px solid var(--color-accent);
+}
+
 /* resetare spatiere */
 figure{
     margin: 0;
 }
 
 footer{
-    background-color: #F9D779;
-    margin-left: var(--margine-pagina);
-    margin-right: var(--margine-pagina);
+    background-color: var(--color-secondary);
 }
 
 .google-sans-text {
