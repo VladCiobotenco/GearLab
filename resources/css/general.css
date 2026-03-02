@@ -1,0 +1,96 @@
+body{
+    --culoare-background: #FCA47C;
+    --margine-pagina: 100px;
+    --culoare-contur: #F9D779;
+    --gap-celule: 20px;
+    background-color: var(--culoare-background)
+}
+
+
+p{
+    border: 1px solid var(--culoare-background)
+}
+
+main{
+    margin-left: var(--margine-pagina);
+    margin-right: var(--margine-pagina);
+}
+
+/* resetare spatiere */
+figure{
+    margin: 0;
+}
+
+footer{
+    background-color: #F9D779;
+    margin-left: var(--margine-pagina);
+    margin-right: var(--margine-pagina);
+}
+
+.google-sans-text {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+}
+
+#grid-pagina{
+    display: grid;
+    gap: var(--gap-celule);
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:"welcome welcome"
+                         "promotii produse"
+                         "faq detalii-tehnice"
+}
+
+#grid-pagina > *{
+    border: 1px solid var(--culoare-contur);
+    padding: 10px;
+    box-shadow: 0 0 5px var(--culoare-contur);
+}
+
+#contact-footer{
+    display: grid;
+    gap: var(--gap-celule);
+}
+
+figure > *{
+    width: 100
+}
+
+#welcome{
+    grid-area: welcome;
+}
+#promotii{
+    grid-area: promotii;
+}
+
+#produse{
+    grid-area: produse;
+}
+
+#faq{
+    grid-area: faq;
+}
+
+#detalii-tehnice{
+    grid-area: detalii-tehnice;
+}
+
+
+
+@media screen and (max-width:700px){
+    body{
+        --margine-pagina: 80px;
+        --gap-celule: 10px;
+    }
+}
+
+@media screen and (max-width:1200px){
+    body{
+        --margine-pagina: 60px;
+        --gap-celule: 5px;
+    }
+}

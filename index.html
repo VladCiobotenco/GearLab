@@ -18,30 +18,40 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./Resources/Images/Favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="GearLab" />
     <link rel="manifest" href="./Resources/Images/Favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="./resources/css/general.css" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
-        <h1>GearLab</h1>
+        <h1>GearLab<i class="fa-solid fa-gamepad"></i></h1>
         <nav>
             <ul>
-                <li>Acasa</li>
-                <ul>
-                    <li><a href="#welcome">Bine ati venit</a></li>
-                    <li><a href="#promotii">Promotii</a></li>
-                    <li><a href="#produse">Produse</a></li>
-                </ul>
+                <li>Acasa
+                    <ul>
+                        <li><a href="#welcome">Bine ati venit</a></li>
+                        <li><a href="#promotii">Promotii</a></li>
+                        <li><a href="#produse">Produse</a></li>
+                    </ul>
+                </li>
                 <li>Despre noi</li>
                 <li>Contact</li>
             </ul>
         </nav>
     </header>
     <main>
-        <div id="grid-pagina">
+        <div id="grid-pagina" class="google-sans-text">
             <section id="welcome">
                 <hgroup>
                     <h2>Bine ati venit</h2>
-                    <h3 class="subtitlu">Prezentarea magazinului</h3>
+                    <p class="google-sans-text">Prezentarea magazinului</p>
                 </hgroup>
 
                 <div class="intro">
@@ -54,20 +64,43 @@
                         în care interacționezi cu universul tău digital. </p>
                 </div>
 
+                <div class="stat-item">
+                    <strong>Gradul de satisfacție al clienților (Review-uri):</strong>
+                    <meter min="0" max="100" low="40" high="85" optimum="95" value="92">
+                        92%
+                    </meter>
+                    <p> Excelent: 92% dintre clienți recomandă GearLab!</p>
+                </div>
+
+                <div>
+                    <p>Principalul nostru partener este Logitech. Puteti accesa site-ul acestora la urmatorul link: <a
+                            href="https://www.logitechg.com/en-us/#utag_594">link</a></p>
+                </div>
+
                 <div id="dv-prezentare-1">
                     <div id="dv-prezentare">
                         <figure title="Mouse G502">
-                            <picture>
-                                <!-- il ia pe primul care se potriveste cu query-ul din media-->
-                                <source srcset="./resources/images/mouse/LogitechG502(440x330).png"
-                                    media="(max-width:700px)" />
-                                <source srcset="./resources/images/mouse/LogitechG502(768x576).png"
-                                    media="(max-width:1200px)" />
-                                <img src="./resurse/imagini/mouse/LogitechG502.png" alt="text" />
-                            </picture>
-                            <figcaption>Mouse-ul Logitech G502, cel mai bun mouse de gaming</figcaption>
+                            <a href="https://www.logitechg.com/en-us/shop/collections/g502">
+                                <picture>
+                                    <source srcset="./resources/images/mouse/LogitechG502(440x330).png"
+                                        media="(max-width:700px)" />
+                                    <source srcset="./resources/images/mouse/LogitechG502(768x576).png"
+                                        media="(max-width:1200px)" />
+                                    <img src="./resources/images/mouse/LogitechG502.png" alt="Logitech G502" />
+                                </picture>
+                            </a>
+                            <figcaption>
+                                Mouse-ul Logitech G502, cel mai bun mouse de gaming
+                            </figcaption>
                         </figure>
                     </div>
+                    <p>Acest mouse este unul dintre cele mai bune mouse-uri din lume. Este recomandat atat de
+                        profesionisti, cat si de pasionatii de jocuri video. Pentru a afla mai multe informatii puteti
+                        accesa urmatorul link: <a href="https://www.logitechg.com/en-us/shop/collections/g502"
+                            target="_blank">Mouse G502</a></p>
+                    <p>Apasa <a href="resources/images/mouse/LogitechG502.png" download="Imagine_G502.png">
+                            aici
+                        </a> pentru a descarca o imagine png cu mouse-ul de mai sus: </p>
                 </div>
 
                 <div>
@@ -211,7 +244,7 @@
                     <thead>
                         <tr>
                             <th>Eveniment</th>
-                            <th>Perioada Promoției</th>
+                            <th>Perioada Promotiei</th>
                             <th>Beneficii Incluse</th>
                             <th>Disponibilitate</th>
                         </tr>
@@ -225,7 +258,7 @@
                             </td>
                             <td>
                                 <ul>
-                                    <li>Discount de <s>25%</s><ins>30%</ins> la toată gama de tastaturi si mouse-uri
+                                    <li>Discount de <s>25%</s><ins>30%</ins> la toata gama de tastaturi si mouse-uri
                                         wireless</li>
                                 </ul>
                             </td>
@@ -240,15 +273,15 @@
                             <td>
                                 <ul>
                                     <li>Mousepad XL cadou la orice comandă de peste 300 RON</li>
-                                    <li>Reduceri de tip „Flash Sale” de până la 50% în fiecare seară</li>
+                                    <li>Reduceri de tip „Flash Sale” de pana la 50% in fiecare seara</li>
                                 </ul>
                             </td>
-                            <td>Stoc Limitat</td>
+                            <td>Shop</td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="text-align: center; background-color: #f2f2f2;">
+                            <td colspan="4">
                                 <strong>
-                                    Notă: Între campanii, laboratorul trece prin procesul de actualizare astocului.
+                                    Notă: Intre campanii, laboratorul trece prin procesul de actualizare a stocului.
                                 </strong>
                             </td>
                         </tr>
@@ -261,7 +294,7 @@
                             <td>
                                 <ul>
                                     <li>Reduceri de pana la <s>30%</s><ins>40%</ins></li>
-                                    <li>Livrare gratuită la orice tastatură mecanică</li>
+                                    <li>Livrare gratuita la orice tastatura mecanica</li>
                                 </ul>
                             </td>
                             <td>Online</td>
@@ -275,7 +308,7 @@
                             <td>
                                 <ul>
                                     <li>Bundle mouse + tastatura office: -25%</li>
-                                    <li>Mousepad cadou pentru elevi și studenți</li>
+                                    <li>Mousepad cadou pentru elevi și studenti</li>
                                 </ul>
                             </td>
                             <td>Online & Shop</td>
@@ -288,14 +321,14 @@
                             </td>
                             <td>
                                 <ul>
-                                    <li>Vouchere de 50 RON în "ouăle" virtuale</li>
-                                    <li>Accesorii laptop cu reducere progresivă</li>
+                                    <li>Vouchere de 100 lei la orice produs</li>
+                                    <li>Bundle mousepad cadou la orice mouse achizitionat</li>
                                 </ul>
                             </td>
                             <td>Online</td>
                         </tr>
                     </tbody>
-                    
+
                     <tfoot>
                         <tr>
                             <th colspan="2">Total Campanii Planificate: 5</th>
@@ -306,7 +339,77 @@
                 </table>
             </section>
 
+            <section id="faq">
+                <h2>Întrebări Frecvente (FAQ)</h2>
 
+                <details>
+                    <summary>Ce tip de switch-uri folosesc tastaturile noastre mecanice?</summary>
+                    <p>Majoritatea tastaturilor noastre folosesc switch-uri <strong>Cherry MX</strong> sau
+                        <strong>Gateron</strong>. În descrierea fiecărui produs vei găsi specificația exactă: Red
+                        (lineare), Blue (clicky) sau Brown (tactile).
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Produsele beneficiază de garanție?</summary>
+                    <p>Da, toate produsele achiziționate de la GearLab vin cu o garanție standard de <strong>24 de
+                            luni</strong> pentru persoane fizice și 12 luni pentru persoane juridice.</p>
+                </details>
+
+                <details>
+                    <summary>Cum aleg mărimea potrivită pentru un mousepad?</summary>
+                    <p>Oferim dimensiuni de la M (250x210mm) până la 3XL (1200x600mm). Dacă dorești să așezi și
+                        tastatura pe mousepad, îți recomandăm minim mărimea XL.</p>
+                </details>
+
+                <details>
+                    <summary>Tastaturile wireless au latență în jocuri?</summary>
+                    <p>Tehnologia modernă de <strong>2.4GHz</strong> (cum este Lightspeed de la Logitech) oferă o rată
+                        de raportare de 1ms, fiind practic indistinguibilă de o conexiune prin fir. Pentru gaming
+                        competitiv, recomandăm evitarea modului Bluetooth simplu din cauza latenței mai ridicate.</p>
+                </details>
+
+                <details>
+                    <summary>Cum pot curăța corect un mousepad textil?</summary>
+                    <p>Majoritatea mousepad-urilor noastre pot fi curățate manual cu apă călduță și un detergent de vase
+                        blând. Folosește o perie moale, clătește bine și lasă-l să se usuce natural (evită expunerea
+                        directă la soare sau calorifer pentru a nu degrada cauciucul).</p>
+                </details>
+
+                <details>
+                    <summary>Controllerele de consolă funcționează și pe PC/Laptop?</summary>
+                    <p>Da! Controllerele de Xbox sunt recunoscute nativ de Windows. Pentru cele de PS4/PS5, este posibil
+                        să ai nevoie de un software precum <em>DS4Windows</em> sau să le configurezi direct prin
+                        interfața <strong>Steam Input</strong>.</p>
+                </details>
+
+                <details>
+                    <summary>Cât durează livrarea produselor aflate în stoc?</summary>
+                    <p>Comenzile plasate până în ora 15:00 sunt procesate în aceeași zi. Timpul estimat de livrare prin
+                        curier rapid este de <strong>24-48 de ore</strong> lucrătoare oriunde în România.</p>
+                </details>
+            </section>
+
+            <section id="detalii-tehnice">
+                <h3>Specificații Avansate Logitech G502 (Cel mai vandut produs al site-ului)</h3>
+
+                <details>
+                    <summary>Detalii Senzor și Performanță</summary>
+                    <ul>
+                        <li>Senzor: HERO™ 25K</li>
+                        <li>Rezoluție: 100 – 25.600 DPI</li>
+                        <li>Accelerație max.: > 40 G</li>
+                        <li>Viteză max.: > 400 IPS</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>Dimensiuni și Greutate</summary>
+                    <p>Înălțime: 132 mm | Lățime: 75 mm | Adâncime: 40 mm</p>
+                    <p>Greutate: 121 g (doar mouse-ul). Include 5 greutăți opționale de câte 3.6 g fiecare.</p>
+                </details>
+            </section>
+        </div>
     </main>
     <!-- <main>
         <p>GearLab este o platforma de resell pentru periferice. Rolul nostru este de a oferi cele mai noi tastaturi,
@@ -320,13 +423,12 @@
     <footer>
         <a href="#welcome">Back to home</a>
         <br>
-        <section id="contact">
+        <section id="contact-footer" class="google-sans-text">
             <h3>Contact</h3>
-            <p>Numar de telefon: +40770393509</p>
+            <p>Numar de telefon: <a href="tel:+40770393509">+40770393509</a></p>
             <p>Link catre <a href="https://wa.me/10770393509">Whatsapp</a></p>
             <p>Link catre Email: <a
                     href="mailto:vlad-andrei.ciobotenco@s.unibuc.ro">vlad-andrei.ciobotenco@s.unibuc.ro</a></p>
-            <br>
             <p>Adresa sediu: <a
                     href="https://www.google.com/maps/place/Politehnica+Business+Tower/@44.4340819,26.0382145,17z/data=!3m1!4b1!4m6!3m5!1s0x40b201f609995a6f:0x8a7b024778b7d337!8m2!3d44.4340819!4d26.0407948!16s%2Fg%2F11h5lv2n9y?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D">Bulevardul
                     Iuliu Maniu 15, București</a></p>
@@ -334,7 +436,7 @@
                 src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Politehnica%20Business%20Tower&t=k&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
 
         </section>
-        <time datetime="2026-02-27">
+        <time datetime="2026-02-27" class="google-sans-text">
             <small>Copyright &copy; 2026 Vlad Andrei Ciobotenco</small>
         </time>
     </footer>
