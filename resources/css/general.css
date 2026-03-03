@@ -51,6 +51,40 @@ figure{
 
 footer{
     background-color: var(--color-secondary);
+    margin-top: 50px;
+    padding: 20px var(--margine-pagina);
+    text-align: center;
+}
+
+footer > * {
+    margin-bottom: 20px;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.playlist-container {
+    height: 1100px;
+    padding-bottom: 0;
+}
+.pdf-viewer {
+    width: 100%;
+    height: 600px;
+    border: none;
 }
 
 .google-sans-text {
@@ -65,16 +99,27 @@ footer{
 #grid-pagina{
     display: grid;
     gap: var(--gap-celule);
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:"welcome welcome"
-                         "promotii produse"
-                         "faq detalii-tehnice"
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:"welcome welcome welcome welcome"
+                        "produse produse promotii promotii"
+                         "faq faq faq faq"
+                         "text-logitech-gaming text-logitech-gaming video-logitech-gaming video-logitech-gaming"
+                         "specificatii-g502 specificatii-g502 video-logitech-gaming video-logitech-gaming"
+                         "video-g502 video-g502 imagine-g502 imagine-g502";
+                         
 }
 
 #grid-pagina > *{
     border: 1px solid var(--culoare-contur);
     padding: 10px;
     box-shadow: 0 0 5px var(--culoare-contur);
+}
+
+#welcome,
+#video-G502,
+#specificatii-G502,
+#faq {
+    background-color: var(--color-secondary);
 }
 
 #contact-footer{
@@ -89,6 +134,7 @@ figure > *{
 #welcome{
     grid-area: welcome;
 }
+
 #promotii{
     grid-area: promotii;
 }
@@ -101,22 +147,65 @@ figure > *{
     grid-area: faq;
 }
 
-#detalii-tehnice{
-    grid-area: detalii-tehnice;
+#imagine-G502{
+    grid-area: imagine-g502;
 }
 
+#video-G502{
+    grid-area: video-g502;
+}
 
+#text-G502{
+    grid-area: text-g502;
+}
 
-@media screen and (max-width:700px){
-    body{
-        --margine-pagina: 80px;
-        --gap-celule: 10px;
-    }
+#specificatii-G502{
+    grid-area: specificatii-g502;
+}
+
+#text-logitech-gaming{
+    grid-area: text-logitech-gaming;
+}
+
+#video-logitech-gaming{
+    grid-area: video-logitech-gaming;
 }
 
 @media screen and (max-width:1200px){
     body{
         --margine-pagina: 60px;
-        --gap-celule: 5px;
+        --gap-celule: 15px;
+    }
+    #grid-pagina {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "welcome"
+            "text-logitech-gaming"
+            "video-logitech-gaming"
+            "specificatii-g502"
+            "video-g502"
+            "imagine-g502"
+            "produse"
+            "promotii"
+            "faq";
+    }
+    .playlist-container {
+        height: 400px;
+    }
+    .pdf-viewer {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width:700px){
+    body{
+        --margine-pagina: 20px;
+        --gap-celule: 10px;
+    }
+    .playlist-container {
+        height: 350px;
+    }
+    .pdf-viewer {
+        height: 450px;
     }
 }
