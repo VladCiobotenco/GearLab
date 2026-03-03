@@ -101,6 +101,7 @@ footer > * {
     gap: var(--gap-celule);
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:"welcome welcome welcome welcome"
+                         "setup-map setup-map setup-map setup-map"
                         "produse produse promotii promotii"
                          "faq faq faq faq"
                          "text-logitech-gaming text-logitech-gaming video-logitech-gaming video-logitech-gaming"
@@ -133,6 +134,10 @@ figure > *{
 
 #welcome{
     grid-area: welcome;
+}
+
+#setup-map{
+    grid-area: setup-map;
 }
 
 #promotii{
@@ -180,13 +185,14 @@ figure > *{
         grid-template-columns: 1fr;
         grid-template-areas:
             "welcome"
+            "setup-map"
+            "produse"
+            "promotii"
             "text-logitech-gaming"
             "video-logitech-gaming"
             "specificatii-g502"
-            "video-g502"
             "imagine-g502"
-            "produse"
-            "promotii"
+            "video-g502"
             "faq";
     }
     .playlist-container {
