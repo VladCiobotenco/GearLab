@@ -84,11 +84,11 @@
                 <img src="resources/images/map.jpg" usemap="#image-map">
             
                 <map name="image-map">
-                    <area target="" alt="Headset" title="Headset" href="#headset" coords="183,286,130" shape="circle">
-                    <area target="" alt="Controller" title="Controller" href="#controller" coords="555,329,370,203" shape="rect">
-                    <area target="" alt="Mouse" title="Mouse" href="#mouse" coords="485,187,392,81" shape="rect">
-                    <area target="" alt="Keyboard" title="Keyboard" href="#keyboard" coords="3,41,336,185" shape="rect">
-                    <area target="" alt="Mousepad" title="Mousepad" href="#mousepad" coords="495,41,599,200" shape="rect">
+                    <area alt="Headset" title="Headset" href="#headset" coords="183,286,130" shape="circle">
+                    <area alt="Controller" title="Controller" href="#controller" coords="555,329,370,203" shape="rect">
+                    <area alt="Mouse" title="Mouse" href="#mouse" coords="485,187,392,81" shape="rect">
+                    <area alt="Keyboard" title="Keyboard" href="#keyboard" coords="3,41,336,185" shape="rect">
+                    <area alt="Mousepad" title="Mousepad" href="#mousepad" coords="495,41,599,200" shape="rect">
                 </map>
             </section>
 
@@ -177,7 +177,7 @@
                             <mn>1</mn>
                             <mi>f</mi>
                         </mfrac>
-                        <mo>×</mo>
+                        <mo>*</mo>
                         <mn>1000</mn>
                     </mrow>
                 </math>
@@ -191,7 +191,7 @@
                     <summary>Detalii Senzor și Performanță</summary>
                     <ul>
                         <li>Senzor: HERO™ 25K</li>
-                        <li>Rezoluție: 100 – 25.600 DPI</li>
+                        <li>Rezoluție: 100 - 25.600 DPI</li>
                         <li>Accelerație max.: > 40 G</li>
                         <li>Viteză max.: > 400 IPS</li>
                     </ul>
@@ -252,7 +252,8 @@
                         <li>mouse office</li>
                     </ul>
                 </section>
-                <section>
+
+                <section id="keyboard">
                     <h3>Tastaturi</h3>
                     <p>Se spune ca exista o <em>singura tastatura perfecta pentru fiecare utilizator</em>. Noi speram ca
                         acea
@@ -265,7 +266,7 @@
                     </ul>
                 </section>
 
-                <section>
+                <section id="headset">
                     <h3>Seturi de casti</h3>
                     <p>Muzica se aude mult mai bine daca este utilizat un set casti calitative. Noi garantam aceasta
                         calitate prin obiectele pe care le punem la vanzare.</p>
@@ -279,8 +280,8 @@
                     </ul>
                 </section>
 
-                <section>
-                    <h3>Mousepad-uri</h3>
+                <section id="mousepad">
+                    <h3>Mousepad</h3>
                     <p>Precizia oricarui mouse poate fi extinsa cu ajutorul unui mousepad bun.</p>
                     <ul>
                         <li>mousepad gaming</li>
@@ -289,7 +290,7 @@
                     </ul>
                 </section>
 
-                <section>
+                <section id="controller">
                     <h3>Controllere</h3>
                     <p>Pasionatii de jocuri pe consola cunosc puterea si precizia unui controller. Acestea sunt
                         compatibile si pentru PC si laptop.</p>
@@ -483,7 +484,7 @@
             <p>Adresa sediu: <a
                     href="https://www.google.com/maps/place/Politehnica+Business+Tower/@44.4340819,26.0382145,17z/data=!3m1!4b1!4m6!3m5!1s0x40b201f609995a6f:0x8a7b024778b7d337!8m2!3d44.4340819!4d26.0407948!16s%2Fg%2F11h5lv2n9y?entry=ttu&g_ep=EgoyMDI2MDIyNC4wIKXMDSoASAFQAw%3D%3D">Bulevardul
                     Iuliu Maniu 15, București</a></p>
-            <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            <iframe id="maps" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                 src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Politehnica%20Business%20Tower&t=k&z=14&ie=UTF8&iwloc=B&output=embed"
                 title="Locatia magazinului fizic GearLab"></iframe>
         </section>

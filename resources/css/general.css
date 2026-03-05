@@ -50,10 +50,14 @@ figure{
 }
 
 footer{
-    background-color: var(--color-secondary);
+    background-color: var(--color-main);
+    color: var(--color-background);
     margin-top: 50px;
     padding: 20px var(--margine-pagina);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
 }
 
 footer > * {
@@ -78,12 +82,12 @@ footer > * {
 }
 
 .playlist-container {
-    height: 1100px;
+    height: 1150px;
     padding-bottom: 0;
 }
 .pdf-viewer {
     width: 100%;
-    height: 600px;
+    height: 350px;
     border: none;
 }
 
@@ -114,6 +118,7 @@ footer > * {
     border: 1px solid var(--culoare-contur);
     padding: 10px;
     box-shadow: 0 0 5px var(--culoare-contur);
+    width: 100%;
 }
 
 #welcome,
@@ -128,9 +133,6 @@ footer > * {
     gap: var(--gap-celule);
 }
 
-figure > *{
-    width: 100
-}
 
 #welcome{
     grid-area: welcome;
@@ -138,6 +140,10 @@ figure > *{
 
 #setup-map{
     grid-area: setup-map;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-main);
 }
 
 #promotii{
@@ -154,6 +160,10 @@ figure > *{
 
 #imagine-G502{
     grid-area: imagine-g502;
+}
+
+#imagine-G502 img{
+    width: 100%;
 }
 
 #video-G502{
@@ -174,6 +184,11 @@ figure > *{
 
 #video-logitech-gaming{
     grid-area: video-logitech-gaming;
+}
+
+#maps{
+    width: 500px;
+    height: 300px;
 }
 
 @media screen and (max-width:1200px){
