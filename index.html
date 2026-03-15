@@ -166,12 +166,12 @@
                     Rate) și timp:</p>
 
 
-
+                <div id="math-formula">
                 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
                     <mrow>
                         <mi>T</mi>
                         <mo>(</mo>
-                        <mi>ms</mi>
+                        <mi id="mu">ms</mi>
                         <mo>)</mo>
                         <mo>=</mo>
                         <mfrac>
@@ -182,6 +182,7 @@
                         <mn>1000</mn>
                     </mrow>
                 </math>
+                </div>
                 <p><small>La o frecvență de <strong>f = 1000Hz</strong>, obținem o latență de exact
                         <strong>1ms</strong>.</small></p>
                 <p>Analizand specificatiile mouse-urilor de pe piata</p>
@@ -215,28 +216,23 @@
             <section id="video-G502">
                 <p>Mai jos aveti o lista de videoclipuri de prezentare pentru mouse-ul Logitech G502, recomandat de
                     specialisti si gameri.</p>
-                <ul class="video-links">
-                    <li>
-                        <a href="https://www.youtube.com/embed/Vs2oHAPSgbY?si=hfVa2InPM9UUALml"
-                            target="iframe-G502">Prezentare oficiala G502</a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/embed/Iek-UH9ZWUw?si=Wdp20IHMkXP3Ezek"
-                            target="iframe-G502">Review Linus Tech Tips</a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/embed/Z5MAbMKtfWA?rel=0" target="iframe-G502">Review
-                            CipFlixTV</a>
-                    </li>
-                </ul>
-
+                
                 <div class="iframe-container">
-                    <iframe title="Video review for Logitech G502 Mouse"
-                        src="https://www.youtube.com/embed/Z5MAbMKtfWA?rel=0" class="responsive-iframe" allowfullscreen
+                    <iframe title="Video review for Logitech G502 Mouse" src="https://www.youtube.com/embed/Z5MAbMKtfWA?rel=0"
+                        class="responsive-iframe" allowfullscreen
                         allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
                         referrerpolicy="strict-origin" name="iframe-G502">
                     </iframe>
                 </div>
+
+                <div class="iframe-buttons">
+                        <a href="https://www.youtube.com/embed/Vs2oHAPSgbY?si=hfVa2InPM9UUALml" target="iframe-G502">Prezentare
+                            oficiala G502</a>
+                        <a href="https://www.youtube.com/embed/Iek-UH9ZWUw?si=Wdp20IHMkXP3Ezek" target="iframe-G502">Review Linus
+                            Tech Tips</a>
+                        <a href="https://www.youtube.com/embed/Z5MAbMKtfWA?rel=0" target="iframe-G502">Review
+                            CipFlixTV</a>
+                    </div>
             </section>
 
             <section id="produse">
@@ -414,8 +410,8 @@
 
                     <tfoot>
                         <tr>
-                            <th colspan="2">Total Campanii Planificate: 5</th>
-                            <th colspan="2">Actualizat la: <time datetime="2026-02-27">27 Februarie 2026</time></th>
+                            <td colspan="2">Total Campanii Planificate: 5</td>
+                            <td colspan="2">Actualizat la: <time datetime="2026-02-27">27 Februarie 2026</time></td>
                         </tr>
                     </tfoot>
 
@@ -475,7 +471,8 @@
         </div>
     </main>
     <footer>
-        <a href="#welcome">Back to home</a>
+        <a href="#" id="link-top" title="Go up!"><div id="arrow">&#8593;</div></a>
+        
         <section id="contact-footer" class="google-sans-text">
             <h3>Contact</h3>
             <p>Numar de telefon: <a href="tel:+40770393509">+40770393509</a></p>
