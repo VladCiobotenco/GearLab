@@ -212,18 +212,31 @@ footer>* {
         "GRAD" 0;
 }
 
+#grid-logitech{
+    display: grid;
+    gap: var(--gap-celule);
+    grid-template-columns: 1fr 1fr;
+    grid-area: grid-logitech;
+    grid-template-areas:"text-logitech-gaming imagine-g502"
+                        "specificatii-g502 imagine-g502"
+                        "specificatii-g502 video-g502"
+                        "video-logitech-gaming video-logitech-gaming";
+}
+
+#grid-logitech > *{
+    padding: 10px;
+    margin: 5px;
+} 
+
 #grid-pagina {
     display: grid;
     gap: var(--gap-celule);
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "welcome welcome welcome welcome"
-        "setup-map setup-map setup-map setup-map"
-        "produse produse promotii promotii"
-        "faq faq faq faq"
-        "text-logitech-gaming text-logitech-gaming video-logitech-gaming video-logitech-gaming"
-        "specificatii-g502 specificatii-g502 video-logitech-gaming video-logitech-gaming"
-        "video-g502 video-g502 imagine-g502 imagine-g502";
-
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "welcome welcome user"
+        "setup-map promotii online-users"
+        "produse promotii online-users"
+        "produse faq info-site-server"
+        "grid-logitech grid-logitech grid-logitech";
 }
 
 #grid-pagina>* {
@@ -256,6 +269,11 @@ footer>* {
     justify-content: center;
     align-items: center;
     background-color: var(--color-main);
+}
+
+#setup-map{
+    width: 95%;
+    height: 95%;
 }
 
 #promotii {
@@ -296,6 +314,18 @@ footer>* {
 
 #video-logitech-gaming {
     grid-area: video-logitech-gaming;
+}
+
+#info-site-server{
+    grid-area: info-site-server;
+}
+
+#online-users{
+    grid-area: online-users;
+}
+
+#user{
+    grid-area: user;
 }
 
 #maps {
