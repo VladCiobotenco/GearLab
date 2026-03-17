@@ -23,6 +23,11 @@ p {
     border: 1px solid var(--culoare-background)
 }
 
+header{
+    margin-left: var(--margine-pagina);
+    margin-right: var(--margine-pagina);
+}
+
 main {
     margin-left: var(--margine-pagina);
     margin-right: var(--margine-pagina);
@@ -34,6 +39,21 @@ h3 {
     color: var(--color-main);
     border-bottom: 2px solid var(--color-secondary);
     padding-bottom: 10px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 a {
@@ -375,7 +395,6 @@ footer>* {
   width: 2.9rem;
   height: 2.9rem;
   border-radius: 50%;
-  border: 3px dashed var(--color-accent);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -399,18 +418,13 @@ footer>* {
     }
 
     #grid-pagina {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "welcome"
-            "setup-map"
-            "produse"
-            "promotii"
-            "text-logitech-gaming"
-            "video-logitech-gaming"
-            "specificatii-g502"
-            "imagine-g502"
-            "video-g502"
-            "faq";
+            "welcome setup-map"
+            "user online-users"
+            "faq promotii"
+            "info-site-server produse"
+            "grid-logitech grid-logitech";
     }
 
     .playlist-container {
@@ -429,11 +443,25 @@ footer>* {
     }
 
     html {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     #promotii {
         overflow-x: auto;
+    }
+
+    #grid-pagina {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "welcome"
+            "user"
+            "online-users"
+            "setup-map"
+            "promotii"
+            "produse"
+            "faq"
+            "info-site-server"
+            "grid-logitech";
     }
 
     .playlist-container {
