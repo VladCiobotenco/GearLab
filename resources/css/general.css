@@ -361,46 +361,35 @@ footer>* {
   width: 6rem;
   box-sizing: border-box;
   height: 6rem;
-  border-radius: 50%;
-  text-decoration: none;
+  border-radius: 50%;   
   background: linear-gradient(var(--color-main), var(--color-accent), var(--color-main));
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s;
-}
-
-#link-top::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
   border: 4px dashed var(--color-accent);
-  box-sizing: border-box;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 2s ease-in-out, opacity 0.3s;
 }
 
 #link-top:hover {
   opacity: 1;
-}
-
-#link-top:hover::before {
   transform: rotate(360deg);
 }
 
 #arrow {
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-accent);
+  color: var(--color-main);
   font-size: 2rem;
   font-weight: bold;
+  transition: transform 2s ease-in-out;
+}
+
+#link-top:hover #arrow {
+  transform: rotate(-360deg);
 }
 
 @media screen and (max-width:1200px) {
