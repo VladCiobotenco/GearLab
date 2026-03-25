@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="resources/css/nav.css" type="text/css" />
     <link rel="stylesheet" href="resources/css/nav1000.css" type="text/css" media="screen and (max-width: 1000px)" />
     <link rel="stylesheet" href="resources/css/nav700.css" type="text/css" media="screen and (max-width: 700px)" />
+    <link rel="stylesheet" href="resources/css/print.css" type="text/css" media="print" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
@@ -39,12 +40,23 @@
     <header>
         <h1>GearLab<i class="fa-solid fa-gamepad"></i></h1>
         <nav>
+            <label id="hamburger" for="ch-menu">
+                <img src="resources/images/Hamburger_icon_alb.png" alt="Menu">
+            </label>
+            <input type="checkbox", id="ch-menu">
             <ul class="menu">
-                <li>Acasa
+                <li>
+                    <div class="text-nav">
+                        <p>Acasa</p>
+                    </div>
+                    <div class="img-nav">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
                     <ul>
                         <li><a href="#welcome">Bine ati venit</a></li>
                         <li><a href="#promotii">Promotii</a></li>
                         <li><a href="#produse">Produse</a></li>
+                        <li><a href="#grid-logitech">GearLab & Logitech</a></li>
                     </ul>
                 </li>
                 <li>Despre noi</li>
@@ -231,6 +243,10 @@
                 <div>
                     <p>Principalul nostru partener este Logitech. Puteti accesa site-ul acestora la urmatorul link: <a
                             href="https://www.logitechg.com/en-us/#utag_594" target="_blank">Logitech G</a></p>
+                </div>
+
+                <div id="logo-animat">
+                    <i class="fa-solid fa-computer"></i>
                 </div>
             </section>
 

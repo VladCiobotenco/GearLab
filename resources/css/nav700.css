@@ -1,0 +1,50 @@
+#hamburger{
+    display:block;
+}
+
+#hamburger > img{
+    height: 3em;
+    width: auto;
+}
+
+ul.menu{
+    display: none;
+}
+
+@keyframes gradual-appear {
+    from {
+        mask-position: 0% 200%;
+    }
+    to {
+        mask-position: 0% 0%;
+    }
+}
+
+
+#ch-menu:checked + ul.menu{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--color-main);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-size: 100% 200%;
+    mask-repeat: no-repeat;
+    animation: gradual-appear 1s forwards;
+}
+
+ul.menu li{
+    width: 100%;
+    height: auto;
+}
+
+ul.menu ul{
+    width: 100%;
+}
+
+ul.menu>li:hover ul{
+    position: static;
+}
+
+/*impinge tot in jos*/
