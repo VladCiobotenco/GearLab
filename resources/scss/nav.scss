@@ -94,11 +94,11 @@ ul.menu {
 
         &:hover {
             background-color: var(--color-background);
-            color: var(--culoare-contur);
+            color: var(--culoare-main);
             transition: linear $transition-fast;
 
             .text-nav {
-                color: var(--culoare-contur);
+                color: var(--culoare-main);
             }
         }
     }
@@ -106,7 +106,6 @@ ul.menu {
 
 .text-nav {
     @extend %inline-element;
-    color: var(--color-main);
     transition: color $transition-fast linear;
 }
 

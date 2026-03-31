@@ -91,14 +91,13 @@ ul.menu li a {
 }
 ul.menu li:hover {
   background-color: var(--color-background);
-  color: var(--culoare-contur);
+  color: var(--culoare-main);
   transition: linear 0.3s;
 }
 ul.menu li:hover .text-nav {
-  color: var(--culoare-contur);
+  color: var(--culoare-main);
 }
 
 .text-nav {
-  color: var(--color-main);
   transition: color 0.3s linear;
-}/*# sourceMappingURL=nav.css.map */
+}
