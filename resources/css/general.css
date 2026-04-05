@@ -154,6 +154,31 @@ table thead th {
     border-left: 2px solid var(--color-accent);
 }
 
+#video-vtt {
+    width: auto;
+    height: 40%;
+    min-width: 320px;
+    max-width: 1000px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+    border: 2px solid var(--color-border);
+}
+
+::cue {
+    background-image: linear-gradient(90deg, var(--color-accent), var(--color-main), var(--color-accent));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(253, 251, 249, 0.85);
+    padding: 5px 15px;
+}
+
 /* resetare spatiere */
 figure {
     margin: 0;
@@ -393,6 +418,49 @@ footer>* {
 
 #link-top:hover #arrow {
   transform: rotate(-360deg);
+}
+
+a:visited {
+    color: var(--color-text); 
+}
+
+a[href^="http"] {
+    position: relative;
+    display: inline-block;
+}
+
+a[href^="http"]::before {
+    content: "⮳ ";
+    font-size: 1.5em; 
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+a[href^="http"]:hover::before {
+    color: var(--color-accent);
+}
+
+main a {
+    background-image: radial-gradient(
+        circle, 
+        rgba(230, 126, 34, 0.3) 0%, 
+        rgba(230, 126, 34, 0.3) 40%, 
+        transparent 80%, 
+        transparent 100%
+    );
+    background-position: center;
+    background-size: 0% 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease-out;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+main a:hover {
+    background-size: 100% 100%;
+}
+
+main a:active {
+    border: 2px solid black;
 }
 
 @media screen and (max-width:1200px) {

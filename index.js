@@ -77,7 +77,13 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
 function initImagini(){
     var continut= fs.readFileSync(path.join(__dirname,"resources/json/galerie.json")).toString("utf-8");
 
-    obGlobal.obImagini=JSON.parse(continut);
+    try {
+        obGlobal.obImagini=JSON.parse(continut);
+    } catch (err) {
+        console.error("Eroare la parsarea 'galerie.json': Fisierul este gol sau are un format JSON invalid.");
+        obGlobal.obImagini = { imagini: [], cale_galerie: "" };
+        return;
+    }
     let vImagini=obGlobal.obImagini.imagini;
     let caleGalerie=obGlobal.obImagini.cale_galerie
 
