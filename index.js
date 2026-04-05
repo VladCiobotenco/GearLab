@@ -7,13 +7,94 @@ const sharp=require("sharp");
 app= express();
 app.set("view engine", "ejs")
 
-obGlobal={                                          //Un obiect de erori
+obGlobal={                                          
     obErori:null,
     obImagini:null,
     folderScss:path.join(__dirname, "resources/scss"),
     folderCss:path.join(__dirname, "resources/css"),
     folderBackup:path.join(__dirname, "backup"),
 }
+
+function verificaErori() {
+    const caleErori = path.join(__dirname, "resources/json/erori.json");
+
+    if (!fs.existsSync(caleErori)) {
+        console.error("Eroare Critică: Nu există fișierul erori.json la calea " + caleErori);
+        process.exit();
+    }
+
+    let eroriObj;
+    try {
+        eroriObj = JSON.parse(continut);
+    } catch (e) {
+        console.error("Eroare la parsare erori.json:", e.message);
+        return;
+    }
+    
+    if (!eroriObj.info_erori || !eroriObj.cale_baza || !eroriObj.eroare_default) {
+        console.error("Eroare: Lipsesc una sau mai multe proprietăți esențiale (info_erori, cale_baza, eroare_default) din erori.json.");
+    }
+
+    if (eroriObj.eroare_default) {
+        let errDef = eroriObj.eroare_default;
+        if (!errDef.titlu || !errDef.text || !errDef.imagine) {
+            console.error("Eroare: Pentru eroarea default lipseste una dintre proprietățile obligatorii: titlu, text sau imagine.");
+        }
+    }
+
+    let rawCaleBaza = eroriObj.cale_baza ? (eroriObj.cale_baza.startsWith("/") ? eroriObj.cale_baza.substring(1) : eroriObj.cale_baza) : "";
+    let caleBazaAbs = path.join(__dirname, rawCaleBaza);
+    if (!fs.existsSync(caleBazaAbs)) {
+        console.error(`Eroare: Folderul specificat în "cale_baza" (${eroriObj.cale_baza}) nu există în sistemul de fișiere.`);
+    } else {
+        if (eroriObj.eroare_default && eroriObj.eroare_default.imagine && !fs.existsSync(path.join(caleBazaAbs, eroriObj.eroare_default.imagine))) {
+            console.error(`Eroare: Fisierul imagine pentru eroarea default (${eroriObj.eroare_default.imagine}) nu există fizic în ${caleBazaAbs}.`);
+        }
+        if (eroriObj.info_erori) {
+            for (let err of eroriObj.info_erori) {
+                if (err.imagine && !fs.existsSync(path.join(caleBazaAbs, err.imagine))) {
+                    console.error(`Eroare: Fisierul imagine pentru eroarea ${err.identificator} (${err.imagine}) nu există fizic în ${caleBazaAbs}.`);
+                }
+            }
+        }
+    }
+
+    //detectia erorilor duplicate
+    if (eroriObj.info_erori) {
+        let idCount = {};
+        for (let err of eroriObj.info_erori) {
+            idCount[err.identificator] = (idCount[err.identificator] || 0) + 1;
+        }
+        for (let id in idCount) {
+            if (idCount[id] > 1) {
+                let duplicates = eroriObj.info_erori.filter(e => e.identificator == id);
+                let props = duplicates.map(d => {
+                    let clone = { ...d };
+                    delete clone.identificator; // Excludem identificatorul din afișare
+                    return JSON.stringify(clone);
+                }).join("|");
+                console.error(`Eroare: Există mai multe erori cu identificatorul [${id}]. Proprietățile acestora sunt: ${props}`);
+            }
+        }
+    }
+
+    //detectia proprietatilor duplicate
+    const continut = fs.readFileSync(caleErori, "utf-8");
+    const matchObiecte = continut.match(/\{[^{}]*\}/g);
+    if (matchObiecte) {
+        for (let obiectString of matchObiecte) {
+            let chei = [...obiectString.matchAll(/"([^"]+)"\s*:/g)].map(m => m[1]);
+            let vazute = new Set();
+            for (let cheie of chei) {
+                if (vazute.has(cheie)) {
+                    console.error(`Eroare JSON: Proprietatea '${cheie}' este specificată de mai multe ori în același obiect!`);
+                }
+                vazute.add(cheie);
+            }
+        }
+    }
+}
+verificaErori();
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resources/json/erori.json")).toString("utf-8");//Functia de init de citire a erorilor din resources/json/erori.json
@@ -142,21 +223,21 @@ app.use("/dist",express.static(path.join(__dirname,"node_modules/bootstrap/dist"
 
 // Rute
 
-app.get("/cale",function(req,res){
-    res.send("<b style='color:red;'>Salut din /cale</b>");
-    console.log("Am primit o cerere GET pe /cale");
-})
+// app.get("/cale",function(req,res){
+//     res.send("<b style='color:red;'>Salut din /cale</b>");
+//     console.log("Am primit o cerere GET pe /cale");
+// })
 
-app.get("/cale2",function(req,res){
-    res.write("ceva\n");
-    res.write("altceva");
-    res.end();
-})
+// app.get("/cale2",function(req,res){
+//     res.write("ceva\n");
+//     res.write("altceva");
+//     res.end();
+// })
 
-app.get("/cale/:a/:b",function(req,res){
-    res.send(parseInt(req.params.a) + parseInt(req.params.b));
-    console.log("Am primit o cerere GET pe /cale");
-});
+// app.get("/cale/:a/:b",function(req,res){
+//     res.send(parseInt(req.params.a) + parseInt(req.params.b));
+//     console.log("Am primit o cerere GET pe /cale");
+// });
 
 // app.get("/",function(req,res){
 //     res.sendFile(path.join(__dirname, "index.html"));
