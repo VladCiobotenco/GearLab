@@ -1,0 +1,17 @@
+{
+    "cale_galerie": "resources/images/galerie",
+    "imagini":[
+        {
+            "fisier":"MouseLogitech.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "interval_ore": [[2,7],[14,16],[22,23]]
+        },
+        {
+            "fisier":"MouseROG.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "interval_ore": [[2,7],[14,16],[22,23]]
+        }
+    ]
+}

@@ -15,7 +15,7 @@
     <div id="print-banner">Acesta este un proiect școlar!</div>
     <%- include("../fragments/header.ejs") %>
 
-    <main>
+        <main>
             <div id="grid-pagina" class="google-sans-text">
                 <div id="grid-logitech">
                     <section id="imagine-G502">
@@ -473,13 +473,33 @@
 
                 <section id="user">
                     <p>User ip: <%- locals.ip %></p>
-                    <button class="btn btn-primary">Buton bootstrap</button>
-                    <!-- de adaugat galeria statica aici -->
+                    <button class="btn btn-primary">Buton bootstrap</button>    
+                    <section id="galerie">
+                        <div id="grid-galerie">
+                            <% 
+                                const vectLuni = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+                                for (let imag of locals.imagini) { 
+                                    let lunaCurenta = vectLuni[(new Date()).getMonth()];
+                                    if(imag.luni?.includes(lunaCurenta)) { /* imag.luni exista, lunaCurenta poate sa nu existe */ 
+                            %>
+                                        <figure>
+                                            <picture>
+                                                <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1100px)">
+                                                <img src="<%- imag.fisier%>" alt="briose">
+                                            </picture>
+                                            <figcaption><%- imag.descriere %></figcaption>
+                                        </figure>
+                            <% 
+                                    }
+                                } 
+                            %>
+                        </div>
+                    </section>
                 </section>
             </div>
-    </main>
+        </main>
 
-    <%- include("../fragments/footer.ejs") %>
+        <%- include("../fragments/footer.ejs") %>
 </body>
 
 </html>
