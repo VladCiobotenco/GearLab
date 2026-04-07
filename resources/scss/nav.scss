@@ -28,10 +28,6 @@ $anim-duration: 0.5s;
         opacity: 0;
         transform: scale(0, 0);
     }
-    50% {
-        opacity: 0.5;
-        transform: scale(0.5, 1);
-    }
     100% {
         opacity: 1;
         transform: scale(1, 1);
@@ -58,11 +54,6 @@ ul.menu {
         animation: animatie_submeniu $anim-duration linear;
         transform-origin: center top;
 
-        @for $i from 1 through 5 {
-            li:nth-child(#{$i}) {
-                animation-delay: #{$i * 0.05}s;
-            }
-        }
     }
 
     > li:hover ul {
@@ -72,7 +63,6 @@ ul.menu {
     }
 
     li {
-        cursor: pointer;
         font-weight: bold;
         background-color: var(--color-main);
         border: 1px solid var(--culoare-contur);
@@ -106,6 +96,7 @@ ul.menu {
 
 .text-nav {
     @extend %inline-element;
+    color: var(--color-main);
     transition: color $transition-fast linear;
 }
 

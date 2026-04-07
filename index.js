@@ -22,7 +22,8 @@ function verificaErori() {
         console.error("Eroare Critică: Nu există fișierul erori.json la calea " + caleErori);
         process.exit();
     }
-
+    
+    const continut = fs.readFileSync(caleErori, "utf-8");
     let eroriObj;
     try {
         eroriObj = JSON.parse(continut);
@@ -70,7 +71,7 @@ function verificaErori() {
                 let duplicates = eroriObj.info_erori.filter(e => e.identificator == id);
                 let props = duplicates.map(d => {
                     let clone = { ...d };
-                    delete clone.identificator; // Excludem identificatorul din afișare
+                    delete clone.identificator;
                     return JSON.stringify(clone);
                 }).join("|");
                 console.error(`Eroare: Există mai multe erori cu identificatorul [${id}]. Proprietățile acestora sunt: ${props}`);
@@ -79,7 +80,7 @@ function verificaErori() {
     }
 
     //detectia proprietatilor duplicate
-    const continut = fs.readFileSync(caleErori, "utf-8");
+    
     const matchObiecte = continut.match(/\{[^{}]*\}/g);
     if (matchObiecte) {
         for (let obiectString of matchObiecte) {
@@ -254,7 +255,7 @@ app.get("/favicon.ico",function(req,res){
 app.get(["/","/index","/home"],function(req,res){
     res.render("pages/index",{
         ip:req.ip,       //Il accesam in index.ejs cu locals.ip
-        imagine:obGlobal.obImagini.imagini
+        imagini:obGlobal.obImagini.imagini
     });
 });
 // app.get("/despre",function(req,res){
