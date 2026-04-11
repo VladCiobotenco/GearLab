@@ -1,0 +1,14 @@
+main {
+  margin-left: calc(-1 * var(--margine-pagina));
+  margin-right: calc(-1 * var(--margine-pagina));
+  padding-left: var(--margine-pagina);
+  padding-right: var(--margine-pagina);
+}
+
+#zona-video {
+  margin-left: calc(-1 * var(--margine-pagina));
+  margin-right: calc(-1 * var(--margine-pagina));
+  padding-left: var(--margine-pagina);
+  padding-right: var(--margine-pagina);
+  background-color: var(--color-main);
+}

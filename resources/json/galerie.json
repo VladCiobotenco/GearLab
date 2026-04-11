@@ -2,16 +2,72 @@
     "cale_galerie": "resources/images/galerie",
     "imagini":[
         {
-            "fisier":"MouseLogitech.png",
+            "fisier":"Alienware.jpg",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
-            "interval_ore": [[2,7],[14,16],[22,23]]
+            "descriere": "Alienware",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
         },
         {
-            "fisier":"MouseROG.png",
+            "fisier":"Aqirys.jpg",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
-            "interval_ore": [[2,7],[14,16],[22,23]]
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },
+        {
+            "fisier":"HyperX.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },{
+            "fisier":"Legion.jpg",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },{
+            "fisier":"Logitech.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },
+        {
+            "fisier":"Qwertykey.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },
+        {
+            "fisier":"ROG.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },
+        {
+            "fisier":"Steelseries.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },
+        {
+            "fisier":"Omen.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
+        },
+        {
+            "fisier":"Razer.png",
+            "nume_imag": "Nume imagine",
+            "alternativ": "text alternativ imagine",
+            "descriere": "Legion",
+            "luni": ["ianuarie","februarie","martie","aprilie"]
         }
     ]
 }

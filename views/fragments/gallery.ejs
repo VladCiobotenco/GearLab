@@ -1,0 +1,22 @@
+<section id="galerie">
+    <div id="grid-galerie">
+        <% 
+            const vectLuni = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+            let lunaCurenta = vectLuni[(new Date()).getMonth()];
+            
+            let imaginiFiltrate = locals.imagini.filter(imag => imag.luni?.includes(lunaCurenta));
+            let limita = Math.floor(imaginiFiltrate.length / 2) * 2;
+            
+            for (let i = 0; i < limita; i++) { 
+                let imag = imaginiFiltrate[i];
+        %>
+            <figure>
+                <picture>
+                    <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1100px)">
+                    <img src="<%- imag.fisier%>" alt="briose">
+                </picture>
+                <figcaption><%- imag.descriere || imag.titlu || imag.nume || 'Fără descriere' %></figcaption>
+            </figure>
+        <% } %>
+    </div>
+</section>

@@ -254,10 +254,15 @@ app.get("/favicon.ico",function(req,res){
 
 app.get(["/","/index","/home"],function(req,res){
     res.render("pages/index",{
-        ip:req.ip,       //Il accesam in index.ejs cu locals.ip
-        imagini:obGlobal.obImagini.imagini
+        ip:req.ip       //Il accesam in index.ejs cu locals.ip
     });
 });
+
+app.get("/despre",function(req,res){
+    res.render("pages/despre.ejs",{
+        imagini:obGlobal.obImagini.imagini
+    })
+})
 // app.get("/despre",function(req,res){
 //     res.render("pages/despre");
 // });
