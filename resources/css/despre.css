@@ -3,6 +3,7 @@ main {
   margin-right: calc(-1 * var(--margine-pagina));
   padding-left: var(--margine-pagina);
   padding-right: var(--margine-pagina);
+  background-color: var(--color-main);
 }
 
 #zona-video {
@@ -10,5 +11,9 @@ main {
   margin-right: calc(-1 * var(--margine-pagina));
   padding-left: var(--margine-pagina);
   padding-right: var(--margine-pagina);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: var(--color-main);
 }

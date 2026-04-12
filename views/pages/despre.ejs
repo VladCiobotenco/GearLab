@@ -10,6 +10,8 @@
 
     <%- include("../fragments/head.ejs") %>
     <link rel="stylesheet" href="/resources/css/despre.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/static-gallery.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/dynamic-gallery.css" type="text/css" />
     
 </head>
 
@@ -17,10 +19,7 @@
     <%- include("../fragments/header.ejs") %>
 
         <main>
-            <p>Despre site</p>
             <section id="zona-video">
-                <h2>Prezentare GearLab</h2>
-
                 <video id="video-vtt" controls preload="auto" poster="./resources/images/video-poster.jpg">
 
                     <source src="./resources/video/gearlab-prezentare.mp4" type="video/mp4">
@@ -33,7 +32,8 @@
                             href="./resources/video/gearlab-prezentare.mp4">aici</a>.</p>
                 </video>
             </section>
-            <%- include("../fragments/gallery.ejs") %>
+            <hr>
+            
         </main>
         <%- include("../fragments/footer.ejs") %>
 </body>

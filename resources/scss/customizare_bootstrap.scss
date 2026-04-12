@@ -1,5 +1,32 @@
-@use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
-(
-    $primary: red,
-    $secondary:purple,
-)
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+    // 1. Culori pentru minim 2 teme (preluate din tema ta)
+    $primary: #2C3E50,
+    $secondary: #E67E22,
+    
+    // 2. Culoarea literelor (font color)
+    $body-color: #34495E,
+    
+    // 3. Dimensiuni de ecran diferite (am adaptat md la 700px și lg la 1200px conform general.css)
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 700px,
+        lg: 1200px,
+        xl: 1400px,
+        xxl: 1600px
+    ),
+    
+    // 4. Dimensiunea razelor de border
+    $border-radius: 8px,
+    
+    // 5. Dimensiunea literelor heading-urilor
+    $h1-font-size: 2rem,
+    $h2-font-size: 1.75rem,
+    $h3-font-size: 1.5rem,
+    
+    // 6. Familia de font implicită
+    $font-family-base: ("Google Sans", sans-serif),
+    
+    // 7. Variabilă în plus la alegere (activarea umbrelor pe componentele Bootstrap)
+    $enable-shadows: true
+);
