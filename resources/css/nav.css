@@ -34,6 +34,7 @@ ul.menu ul, ul.menu {
 
 nav {
   background-color: var(--color-main);
+  margin: 1rem;
 }
 
 ul.menu {
