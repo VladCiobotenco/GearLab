@@ -1,0 +1,27 @@
+#produse .grid-produse .produs .info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+#produse .grid-produse .produs table.info-prod {
+  flex-grow: 1;
+  border-collapse: collapse;
+  text-align: left;
+}
+#produse .grid-produse .produs table.info-prod th, #produse .grid-produse .produs table.info-prod td {
+  padding: 5px;
+}
+#produse .grid-produse .produs figure {
+  margin: 0;
+  flex-shrink: 0;
+}
+#produse .grid-produse .produs figure img {
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+#produse .grid-produse .produs .descriere {
+  margin-top: 15px;
+}

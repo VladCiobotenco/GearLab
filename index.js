@@ -3,9 +3,19 @@ const fs=require("fs");
 const path= require("path");
 const sass=require("sass");
 const sharp=require("sharp");
+const pg=require("pg");
 
 app= express();
 app.set("view engine", "ejs")
+
+client=new pg.Client({
+    database: "gearlab",
+    user:"ciobo",
+    password:"ciobo",
+    host:"localhost",
+    port:5432
+})
+client.connect()
 
 obGlobal={                                          
     obErori:null,
@@ -263,6 +273,47 @@ app.get("/despre",function(req,res){
         imagini:obGlobal.obImagini.imagini
     })
 })
+
+app.get("/produse",function(req,res){
+
+    let clauzaWhere=""
+    if(req.query.tip){
+        clauzaWhere=`where categorie='${req.query.tip}'`
+    }
+
+    client.query(`select * from periferice ${clauzaWhere}`, function(err,rez){
+        if(err)
+        {
+            console.error("Database Error on /produse:", err.message);
+            afisareaEroare(res,"2");
+        }
+        else {
+            res.render("pages/produse",{
+                produse:rez.rows,
+                optiuni:[]
+            })
+        }
+    })
+})
+
+app.get("/produs/:id",function(req,res){
+
+    client.query(`select * from periferice where id=${req.params.id}`, function(err,rez){
+        if(err)
+        {
+            afisareaEroare(res,"2");
+        }
+        else {
+            if(rez.rowCount==0){
+                afisareaEroare(res,"404","Produs inexistent");
+                return;
+            }
+            res.render("pages/produs",{
+                prod:rez.rows[0],
+            })
+        }
+    })
+})
 // app.get("/despre",function(req,res){
 //     res.render("pages/despre");
 // });
@@ -302,5 +353,7 @@ app.get("/*pagina",function(req,res){       //Pentru a randa mai multe pagini de
     
 })
 
-app.listen(8080);   
-console.log("Serverul a pornit!");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Serverul a pornit pe portul ${PORT}!`);
+});

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Magazinul GearLab ofera spre vanzare periferice de PC si laptop.">
+        <meta name="keywords" content="GearLab, periferice, tastatura, mouse, casti, mousepad, controller">
+        <link rel="stylesheet" href="/resources/css/produse.css" type="text/css" />
+        <title>GearLab - Produse</title>
+        <%- include("../fragments/head") %>     
+        <script type="text/javascript" src=/resources/js/produse.js></script>
+        <script type="text/javascript" src=/resources/js/produse-cos.js></script>
+
+    </head>
+    <body>
+
+
+    <%- include("../fragments/header") %>
+
+    <main>
+        <section id="filtre" class="container-filtre" style="margin-bottom: 20px; padding: 20px; border: 1px solid var(--color-border); border-radius: 8px; background-color: var(--color-secondary);">
+            <h2>Filtre Produse</h2>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+                <label>Nume: 
+                    <input type="text" id="inp-nume" list="lista-nume" placeholder="Cauta produs...">
+                    <datalist id="lista-nume">
+                        <% for (let prod of locals.produse) { %>
+                            <option value="<%- prod.nume %>"></option>
+                        <% } %>
+                    </datalist>
+                </label>
+
+                <label>Tip produs:
+                    <input list="lista-tipuri" id="inp-tip-produs" placeholder="Oricare">
+                    <datalist id="lista-tipuri">
+                        <option value="wired">
+                        <option value="wireless">
+                        <option value="mecanica">
+                        <option value="membrana">
+                        <option value="gaming">
+                        <option value="office">
+                    </datalist>
+                </label>
+
+                <label style="display: flex; align-items: center; gap: 5px;">Masă minimă:
+                    <small>0 g</small> 
+                    <input type="range" id="inp-masa" value="0" min="0" max="2000" step="50"> 
+                    <small>2000 g</small>
+                    <span id="infoRange" style="font-weight: bold; margin-left: 10px;">(0 g)</span>
+                </label>
+
+                <fieldset style="border: 1px solid var(--color-main); padding: 10px; border-radius: 5px; margin: 0;">
+                    <legend style="padding: 0 5px; font-weight: bold;">Pentru gaming:</legend>
+                    <label style="margin-right: 10px;"><input id="i_rad1" name="gr_rad" value="true" type="radio"/> Da</label>
+                    <label style="margin-right: 10px;"><input id="i_rad2" name="gr_rad" value="false" type="radio"/> Nu</label>
+                    <label><input id="i_rad3" name="gr_rad" value="toate" type="radio" checked/> Toate</label>
+                </fieldset>
+
+                <label style="display: flex; align-items: center;">
+                    <input type="checkbox" id="inp-pret" value="500" style="margin-right: 5px;"> 
+                    Doar produse de buget (preț &lt; 500 lei)
+                </label>
+
+                <label>Categorie:
+                    <select id="inp-categorie">
+                        <option id="sel-toate" selected value="toate">Oricare</option>
+                        <% for (let opt of locals.optiuni) { %>
+                            <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                        <% } %>
+                    </select>
+                </label>
+
+                <label style="display: flex; flex-direction: column;">Materiale (Ctrl+Click pentru selecție multiplă):
+                    <select id="inp-materiale" multiple size="4">
+                        <option value="toate" selected>Oricare</option>
+                        <option value="plastic">Plastic</option>
+                        <option value="metal">Metal</option>
+                        <option value="aluminiu">Aluminiu</option>
+                        <option value="textil">Textil</option>
+                        <option value="cauciuc">Cauciuc</option>
+                    </select>
+                </label>
+
+                <label style="display: flex; flex-direction: column;">
+                    Cuvinte în descriere:
+                    <textarea id="inp-descriere" rows="2" cols="30" placeholder="Conține cuvintele..."></textarea>
+                </label>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="c1 c2 c3" id="filtrare" style="padding: 10px 20px;"><i class="fa-solid fa-filter"></i> Filtreaza</button> 
+                <button id="resetare" style="padding: 10px 20px;"><i class="fa-solid fa-rotate-left"></i> Reseteaza</button>
+                <button id="sortCrescNume" style="padding: 10px 20px;"><i class="fa-solid fa-arrow-down-a-z"></i> Sorteaza crescator (pret si nume)</button>
+                <button id="sortDescrescNume" style="padding: 10px 20px;"><i class="fa-solid fa-arrow-down-z-a"></i> Sorteaza descrescator (pret si nume)</button>
+            </div>
+        </section>
+      
+        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+  
+        <section id="produse">
+
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                <% 
+                    const zile = ['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă'];
+                    const luni = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'];
+                    for( let prod of locals.produse) { 
+                        let d = new Date(prod.data_adaugare);
+                        let dataFormatata = d.getDate() + ' ' + luni[d.getMonth()] + ' ' + d.getFullYear() + ' (' + zile[d.getDay()] + ')';
+                %>
+                    <article class="produs <%- prod.categorie %>" >
+                        <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        
+                        <div class="info-container">
+                            <table class="info-prod" border="1">
+                                <tbody>
+                                    <tr>
+                                        <th>Masă</th>
+                                        <td><span class="val-masa"><%- prod.masa%></span> g (Preț: <span class="val-pret"><%- prod.pret%></span> lei)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tip produs</th>
+                                        <td><span class="val-tip_produs"><%- prod.tip_produs%></span></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Materiale</th>
+                                        <td><%- prod.materiale ? prod.materiale.join(', ') : '-' %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Data adăugării</th>
+                                        <td><time datetime="<%- d.toISOString() %>"><%- dataFormatata %></time></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pentru gaming</th>
+                                        <td><%- prod.pt_gaming ? 'Da' : 'Nu' %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <figure>
+                                <a href="/produs/<%-prod.id %>" ><img src="/resources/images/products/<%- prod.imagine %>" alt="[imagine <%- prod.nume %>]" /></a>
+                            </figure>
+                        </div>
+                        
+                        <p class="descriere"><strong>Descriere:</strong> <span class="val-descriere"><%- prod.descriere %></span></p>
+                        <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></p>
+                        
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../fragments/footer") %>
+    </body>
+</html>
