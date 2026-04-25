@@ -1,0 +1,34 @@
+.dynamic-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 10px;
+  background-image: linear-gradient(var(--color-accent), var(--color-main), var(--color-accent));
+  margin-left: calc(-1 * var(--margine-pagina));
+  margin-right: calc(-1 * var(--margine-pagina));
+  padding-left: var(--margine-pagina);
+  padding-right: var(--margine-pagina);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  scrollbar-width: none;
+}
+.dynamic-gallery::-webkit-scrollbar {
+  display: none;
+}
+.dynamic-gallery .gallery-item {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dynamic-gallery .gallery-item img {
+  display: block;
+}
