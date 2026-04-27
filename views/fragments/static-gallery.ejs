@@ -1,10 +1,20 @@
 <section id="galerie">
     <div id="grid-galerie">
         <% 
-            const vectLuni = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
-            let lunaCurenta = vectLuni[(new Date()).getMonth()];
+             const vectLuni = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+            let lunaCurenta = new Date().getMonth();
             
-            let imaginiFiltrate = locals.imagini.filter(imag => imag.luni?.includes(lunaCurenta));
+            let imaginiFiltrate = locals.imagini.filter(imag => {
+                if (!imag.luni) return false;
+                return imag.luni.some(interval => {
+                    let idxStart = vectLuni.indexOf(interval[0]);
+                    let idxEnd = vectLuni.indexOf(interval[1]);
+                    if (idxStart <= idxEnd) {
+                        return lunaCurenta >= idxStart && lunaCurenta <= idxEnd;
+                    }
+                });
+            });
+            //let imaginiFiltrate = locals.imagini.filter(imag => imag.luni?.includes(lunaCurenta));
             let limita = Math.floor(imaginiFiltrate.length / 2) * 2;
             
             for (let i = 0; i < limita; i++) { 
