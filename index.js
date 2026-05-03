@@ -15,7 +15,10 @@ client=new pg.Client({
     host:"localhost",
     port:5432
 })
-client.connect()
+client.connect().catch(err => {
+    console.error("Eroare la conectarea la baza de date:", err.message);
+    console.error("Asigură-te că serverul PostgreSQL este pornit pe portul 5432.");
+});
 
 obGlobal={                                          
     obErori:null,
@@ -122,7 +125,7 @@ function compileazaScss(caleScss, caleCss){
     if(!caleCss){
 
         let numeFisExt=path.basename(caleScss); // "folder1/folder2/a.scss" -> "a.scss"
-        let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
+        let numeFis=numeFisExt.substring(0, numeFisExt.lastIndexOf("."));   // "stil.frumos.scss"  -> "stil.frumos"
         caleCss=numeFis+".css"; // output: a.css
     }
     
@@ -140,7 +143,10 @@ function compileazaScss(caleScss, caleCss){
 
     let numeFisCss=path.basename(caleCss);
     if (fs.existsSync(caleCss)){
-        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css",numeFisCss ))// +(new Date()).getTime()
+        let numeFaraExt = numeFisCss.substring(0, numeFisCss.lastIndexOf("."));
+        let timestamp = new Date().getTime();
+        let numeFisBackup = `${numeFaraExt}_${timestamp}.css`;             //Se adauga un timestamps la numele fisierului
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css", numeFisBackup))
     }
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
@@ -165,6 +171,42 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
         }
     }
 })
+
+function verificaImagini() {
+    const caleJson = path.join(__dirname, "resources/json/galerie.json");
+    if (!fs.existsSync(caleJson)) {
+        console.error("Eroare Galerie: Nu există fișierul galerie.json la calea " + caleJson);
+        return;
+    }
+
+    const continut = fs.readFileSync(caleJson, "utf-8");
+    let obImagini;
+    try {
+        obImagini = JSON.parse(continut);
+    } catch (e) {
+        console.error("Eroare Galerie: galerie.json are un format JSON invalid.");
+        return;
+    }
+
+    let caleGalerie = obImagini.cale_galerie;
+    if (!caleGalerie) {
+        console.error("Eroare Galerie: Proprietatea 'cale_galerie' lipsește din galerie.json.");
+        return;
+    }
+
+    let caleAbs = path.join(__dirname, caleGalerie);
+    if (!fs.existsSync(caleAbs)) {
+        console.error(`Eroare Galerie: Folderul specificat în "cale_galerie" (${caleGalerie}) nu există în sistemul de fișiere la calea: ${caleAbs}. Vă rugăm să îl creați sau să corectați calea.`);
+    } else if (obImagini.imagini && Array.isArray(obImagini.imagini)) {
+        for (let imag of obImagini.imagini) {
+            let caleFisAbs = path.join(caleAbs, imag.fisier);
+            if (!fs.existsSync(caleFisAbs)) {
+                console.error(`Eroare Galerie: Fișierul imagine "${imag.fisier}" specificat în lista de imagini nu există fizic în folderul ${caleAbs}. Verificați dacă fișierul este prezent și dacă numele este corect.`);
+            }
+        }
+    }
+}
+verificaImagini();
 
 function initImagini(){
     var continut= fs.readFileSync(path.join(__dirname,"resources/json/galerie.json")).toString("utf-8");

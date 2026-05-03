@@ -53,4 +53,7 @@ INSERT INTO periferice (nume, descriere, pret, masa, tip_produs, categorie, mate
 ('Scuf Reflex Pro', 'Controller personalizat de inalta performanta.', 1300.00, 300, 'wireless', 'controller', ARRAY['plastic', 'metal', 'cauciuc texturat'], TRUE, 'scuf_reflex.jpg'),
 ('Royal Kludge RK61', 'Tastatura mecanica de 60% tip buget.', 250.00, 500, 'mecanica', 'tastatura', ARRAY['plastic ABS'], TRUE, 'rk61.jpg');
 
+GRANT CONNECT ON DATABASE gearlab TO ciobo;
+GRANT USAGE ON SCHEMA public TO ciobo;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO ciobo;
 GRANT SELECT ON TABLE periferice TO ciobo;

@@ -1,17 +1,23 @@
 <section id="galery">
-    <div class="dynamic-gallery">
-        <% 
-            function getRandomPictures(pictures) {
-                const min = 6;
-                const max = 12;
-                const randomCount = Math.floor(Math.random() * (max - min + 1)) + min;
-                const shuffled = [...pictures].sort(() => 0.5 - Math.random());
-                return shuffled.slice(0, Math.min(randomCount, shuffled.length));
-            }
-            let selectedImages = getRandomPictures(locals.imagini || []);
-            for (let imag of selectedImages) { 
-        %>
-            <figure class="gallery-item"><img src="<%- imag.fisier %>" alt="<%- imag.descriere || imag.titlu || imag.nume || 'Imagine Galerie' %>"></figure>
-        <% } %>
+    <%
+    const optiuniNrImagini = [6, 8, 10, 12];
+    const nrImagini = optiuniNrImagini[Math.floor(Math.random() * optiuniNrImagini.length)];
+    
+    let galleryItems = [];
+    if (typeof imagini !== 'undefined' && imagini.length > 0) {
+        for (let i = 0; i < nrImagini; i++) {
+            galleryItems.push(imagini[i % imagini.length]);
+        }
+    }
+%>
+
+<div class="dynamic-gallery-container">
+    <div class="dynamic-gallery gallery-count-<%= nrImagini %>">
+        <% galleryItems.forEach(function(img, idx) { %>
+            <figure class="gallery-item">
+                <img src="<%= img.fisier_mediu || img.fisier %>" alt="Imagine galerie <%= idx + 1 %>">
+            </figure>
+        <% }); %>
     </div>
+</div>
 </section>
