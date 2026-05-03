@@ -1,7 +1,6 @@
 window.onload=function(){
     document.getElementById("filtrare").onclick=function(){
         let inpNume=document.getElementById("inp-nume").value.trim().toLowerCase()
-        console.log(produse)
         let produse=document.getElementsByClassName("produs")
         for(let produs of produse){
             produs.style.display="none"
@@ -12,6 +11,5 @@ window.onload=function(){
                 produs.style.display="block"
             }
         }
-
     }
 }
