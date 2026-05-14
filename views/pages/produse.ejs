@@ -21,7 +21,7 @@
             
             <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
                 <label>Nume: 
-                    <input type="text" id="inp-nume" list="lista-nume" placeholder="Cauta produs...">
+                    <input type="text" id="inp-nume" list="lista-nume" class="form-control" placeholder="Cauta produs...">
                     <datalist id="lista-nume">
                         <% for (let prod of locals.produse) { %>
                             <option value="<%- prod.nume %>"></option>
@@ -29,48 +29,53 @@
                     </datalist>
                 </label>
 
-                <label>Tip produs:
-                    <input list="lista-tipuri" id="inp-tip-produs" placeholder="Oricare">
-                    <datalist id="lista-tipuri">
-                        <option value="wired">
-                        <option value="wireless">
-                        <option value="mecanica">
-                        <option value="membrana">
-                        <option value="gaming">
-                        <option value="office">
+                <label>Tip produse:
+                    <input list="lista-categorii" id="inp-tip" class="form-control" placeholder="Oricare">
+                    <datalist id="lista-categorii">
+                        <% for (let opt of locals.optiuni) { %>
+                            <option value="<%- opt.valoare || opt.unnest %>"></option>
+                        <% } %>
                     </datalist>
                 </label>
 
                 <label style="display: flex; align-items: center; gap: 5px;">Masă minimă:
                     <small>0 g</small> 
-                    <input type="range" id="inp-masa" value="0" min="0" max="2000" step="50"> 
+                    <input type="range" id="inp-masa" class="form-range" value="0" min="0" max="2000" step="50"> 
                     <small>2000 g</small>
                     <span id="infoRange" style="font-weight: bold; margin-left: 10px;">(0 g)</span>
                 </label>
 
                 <fieldset style="border: 1px solid var(--color-main); padding: 10px; border-radius: 5px; margin: 0;">
                     <legend style="padding: 0 5px; font-weight: bold;">Pentru gaming:</legend>
-                    <label style="margin-right: 10px;"><input id="i_rad1" name="gr_rad" value="true" type="radio"/> Da</label>
-                    <label style="margin-right: 10px;"><input id="i_rad2" name="gr_rad" value="false" type="radio"/> Nu</label>
-                    <label><input id="i_rad3" name="gr_rad" value="toate" type="radio" checked/> Toate</label>
+                    <label class="form-check-label" style="margin-right: 10px;"><input id="i_rad1" name="gr_rad" value="true" class="form-check-input" type="radio"/> Da</label>
+                    <label class="form-check-label" style="margin-right: 10px;"><input id="i_rad2" name="gr_rad" value="false" class="form-check-input" type="radio"/> Nu</label>
+                    <label class="form-check-label"><input id="i_rad3" name="gr_rad" value="toate" class="form-check-input" type="radio" checked/> Toate</label>
                 </fieldset>
 
-                <label style="display: flex; align-items: center;">
-                    <input type="checkbox" id="inp-pret" value="500" style="margin-right: 5px;"> 
+                <label class="form-check-label" style="display: flex; align-items: center;">
+                    <input type="checkbox" id="inp-pret" value="500" class="form-check-input" style="margin-right: 5px;"> 
                     Doar produse de buget (preț &lt; 500 lei)
                 </label>
 
-                <label>Categorie:
-                    <select id="inp-categorie">
+                <label>Categorie produs:
+                    <select id="inp-categorie" class="form-select">
                         <option id="sel-toate" selected value="toate">Oricare</option>
-                        <% for (let opt of locals.optiuni) { %>
-                            <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                        <% 
+                        let tipuriProdus = new Set();
+                        for (let prod of locals.produse) {
+                            if (prod.categorie) {
+                                tipuriProdus.add(prod.categorie);
+                            }
+                        }
+                        for (let tip of tipuriProdus) { 
+                        %>
+                            <option value="<%- tip %>"><%- tip %></option>
                         <% } %>
                     </select>
                 </label>
 
                 <label style="display: flex; flex-direction: column;">Materiale (Ctrl+Click pentru selecție multiplă):
-                    <select id="inp-materiale" multiple size="4">
+                    <select id="inp-materiale" class="form-select" multiple size="4">
                         <option value="toate" selected>Oricare</option>
                         <option value="plastic">Plastic</option>
                         <option value="metal">Metal</option>
@@ -82,15 +87,15 @@
 
                 <label style="display: flex; flex-direction: column;">
                     Cuvinte în descriere:
-                    <textarea id="inp-descriere" rows="2" cols="30" placeholder="Conține cuvintele..."></textarea>
+                    <textarea id="inp-descriere" class="form-control" rows="2" cols="30" placeholder="Conține cuvintele..."></textarea>
                 </label>
             </div>
 
             <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <button class="c1 c2 c3" id="filtrare" style="padding: 10px 20px;"><i class="fa-solid fa-filter"></i> Filtreaza</button> 
-                <button id="resetare" style="padding: 10px 20px;"><i class="fa-solid fa-rotate-left"></i> Reseteaza</button>
-                <button id="sortCrescNume" style="padding: 10px 20px;"><i class="fa-solid fa-arrow-down-a-z"></i> Sorteaza crescator (pret si nume)</button>
-                <button id="sortDescrescNume" style="padding: 10px 20px;"><i class="fa-solid fa-arrow-down-z-a"></i> Sorteaza descrescator (pret si nume)</button>
+                <button class="btn btn-primary" id="filtrare"><i class="bi bi-funnel-fill"></i> <span class="d-none d-sm-inline">Filtreaza</span></button> 
+                <button class="btn btn-secondary" id="resetare"><i class="bi bi-arrow-counterclockwise"></i> <span class="d-none d-sm-inline">Reseteaza</span></button>
+                <button class="btn btn-primary" id="sortCrescNume"><i class="bi bi-sort-alpha-down"></i> <span class="d-none d-sm-inline">Sorteaza crescator (pret si nume)</span></button>
+                <button class="btn btn-primary" id="sortDescrescNume"><i class="bi bi-sort-alpha-up-alt"></i> <span class="d-none d-sm-inline">Sorteaza descrescator (pret si nume)</span></button>
             </div>
         </section>
       

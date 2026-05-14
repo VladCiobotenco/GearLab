@@ -20,54 +20,54 @@
             "nume_imag": "Nume imagine",
                         "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },{
             "fisier":"Legion.jpg",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },{
             "fisier":"Logitech.png",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },
         {
             "fisier":"Qwertykey.png",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },
         {
             "fisier":"ROG.png",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },
         {
             "fisier":"Steelseries.png",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },
         {
             "fisier":"Omen.png",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         },
         {
             "fisier":"Razer.png",
             "nume_imag": "Nume imagine",
             "alternativ": "text alternativ imagine",
             "descriere": "Legion",
-            "luni": [["ianuarie","februarie"],["martie","aprilie"]]
+            "luni": [["ianuarie","februarie"],["martie","iunie"]]
         }
     ]
 }

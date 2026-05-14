@@ -15,18 +15,34 @@ client=new pg.Client({
     host:"localhost",
     port:5432
 })
-client.connect().catch(err => {
-    console.error("Eroare la conectarea la baza de date:", err.message);
-    console.error("Asigură-te că serverul PostgreSQL este pornit pe portul 5432.");
-});
 
 obGlobal={                                          
     obErori:null,
     obImagini:null,
+    optiuniMeniu:[],
     folderScss:path.join(__dirname, "resources/scss"),
     folderCss:path.join(__dirname, "resources/css"),
     folderBackup:path.join(__dirname, "backup"),
 }
+
+client.connect().then(() => {
+    client.query("select unnest(enum_range(null::categ_echipamente)) as valoare", function(err, rezOptiuni){
+        if (!err) {
+            obGlobal.optiuniMeniu = rezOptiuni.rows;
+            console.log("Optiuni incarcate:", obGlobal.optiuniMeniu);
+        } else {
+            console.log("Eroare la incarcarea optiunilor:", err);
+        }
+    });
+}).catch(err => {
+    console.error("Eroare la conectarea la baza de date:", err.message);
+    console.error("Asigură-te că serverul PostgreSQL este pornit pe portul 5432.");
+});
+
+app.use(function(req,res,next){
+    res.locals.optiuniMeniu = obGlobal.optiuniMeniu;
+    next();
+})
 
 function verificaErori() {
     const caleErori = path.join(__dirname, "resources/json/erori.json");
@@ -319,8 +335,8 @@ app.get("/despre",function(req,res){
 app.get("/produse",function(req,res){
 
     let clauzaWhere=""
-    if(req.query.tip){
-        clauzaWhere=`where categorie='${req.query.tip}'`
+    if(req.query.categorie){
+        clauzaWhere=`where categorie='${req.query.categorie}'`
     }
 
     client.query(`select * from periferice ${clauzaWhere}`, function(err,rez){
@@ -329,11 +345,19 @@ app.get("/produse",function(req,res){
             console.error("Database Error on /produse:", err.message);
             afisareaEroare(res,"2");
         }
-        else {
-            res.render("pages/produse",{
-                produse:rez.rows,
-                optiuni:[]
+        else{
+            client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezOptiuni){
+                if (err){
+                    afisareEroare(res,2)
+                }
+                else{
+                    res.render("pages/produse",{
+                        produse:rez.rows,
+                        optiuni:rezOptiuni.rows
+                    })
+                }
             })
+            
         }
     })
 })
