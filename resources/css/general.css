@@ -15,7 +15,17 @@ body {
     --margine-pagina: 100px;
     --gap-celule: 20px;
 
-    background-color: var(--culoare-background)
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+body.dark {
+    --color-background: #121212;
+    --color-main: #8ab4f8;
+    --color-accent: #f39c12;
+    --color-secondary: #2c2c2c;
+    --color-text: #e8eaed;
+    --color-border: #d35400;
 }
 
 

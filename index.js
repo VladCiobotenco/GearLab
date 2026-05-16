@@ -29,7 +29,6 @@ client.connect().then(() => {
     client.query("select unnest(enum_range(null::categ_echipamente)) as valoare", function(err, rezOptiuni){
         if (!err) {
             obGlobal.optiuniMeniu = rezOptiuni.rows;
-            console.log("Optiuni incarcate:", obGlobal.optiuniMeniu);
         } else {
             console.log("Eroare la incarcarea optiunilor:", err);
         }
