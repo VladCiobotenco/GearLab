@@ -35,8 +35,8 @@ INSERT INTO periferice (nume, descriere, pret, masa, tip_produs, categorie, mate
 ('Logitech G502 Hero', 'Mouse gaming popular ajustabil cu greutati.', 250.00, 121, 'wired', 'mouse', ARRAY['plastic', 'metal', 'cauciuc'], TRUE, 'g502_hero.jpg'),
 ('Ducky One 3 Mini', 'Tastatura mecanica 60% hot-swappable.', 720.00, 600, 'mecanica', 'tastatura', ARRAY['plastic PBT', 'silicon'], TRUE, 'ducky_one3_mini.jpg'),
 ('SteelSeries Arctis Nova Pro', 'Sistem audio de inalta fidelitate.', 1250.00, 338, 'wired', 'casti', ARRAY['otel', 'aluminiu', 'piele sintetica'], TRUE, 'arctis_nova_pro.jpg'),
-('Glorious Model O Wireless', 'Mouse ultra-usor cu model fagure.', 420.00, 69, 'wireless', 'mouse', ARRAY['plastic ABS', 'PTFE'], TRUE, 'glorious_model_o_wl.jpg'),
-('Zowie EC2-C', 'Mouse ergonomic apreciat pentru esports.', 340.00, 73, 'wired', 'mouse', ARRAY['plastic'], TRUE, 'zowie_ec2c.jpg'),
+('Glorious Model O Wireless', 'Mouse ultra-usor cu model fagure.', 420.00, 69, 'wireless', 'mouse', ARRAY['plastic ABS', 'PTFE'], TRUE, 'glorious_model_o_wl.webp'),
+('Zowie EC2-C', 'Mouse ergonomic apreciat pentru esports.', 340.00, 73, 'wired', 'mouse', ARRAY['plastic'], TRUE, 'zowie_ec2c.avif'),
 ('Corsair K70 RGB PRO', 'Tastatura mecanica full-size cu palm rest.', 850.50, 1150, 'mecanica', 'tastatura', ARRAY['aluminiu periat', 'plastic PBT'], TRUE, 'corsair_k70_pro.jpg'),
 ('Razer BlackShark V2', 'Casti usoare destinate jucatorilor pro de esports.', 399.99, 240, 'wired', 'casti', ARRAY['plastic', 'spuma cu memorie'], TRUE, 'razer_blackshark_v2.jpg'),
 ('Artisan Zero Soft', 'Mousepad premium fabricat in Japonia.', 350.00, 300, 'NA', 'mousepad', ARRAY['poliester tricotat', 'burete poliuretanic'], TRUE, 'artisan_zero.jpg'),
@@ -52,6 +52,8 @@ INSERT INTO periferice (nume, descriere, pret, masa, tip_produs, categorie, mate
 ('Xtrfy GP4', 'Mousepad cu design artistic original si glide fluid.', 160.00, 350, 'NA', 'mousepad', ARRAY['textil', 'cauciuc natural'], TRUE, 'xtrfy_gp4.jpg'),
 ('Scuf Reflex Pro', 'Controller personalizat de inalta performanta.', 1300.00, 300, 'wireless', 'controller', ARRAY['plastic', 'metal', 'cauciuc texturat'], TRUE, 'scuf_reflex.jpg'),
 ('Royal Kludge RK61', 'Tastatura mecanica de 60% tip buget.', 250.00, 500, 'mecanica', 'tastatura', ARRAY['plastic ABS'], TRUE, 'rk61.jpg');
+GRANT SELECT ON TABLE periferice TO ciobo;
+
 
 GRANT CONNECT ON DATABASE gearlab TO ciobo;
 GRANT USAGE ON SCHEMA public TO ciobo;

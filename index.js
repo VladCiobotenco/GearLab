@@ -4,6 +4,8 @@ const path= require("path");
 const sass=require("sass");
 const sharp=require("sharp");
 const pg=require("pg");
+const formidable=require("formidable");
+const session=require("express-session");
 
 app= express();
 app.set("view engine", "ejs")
@@ -33,15 +35,18 @@ client.connect().then(() => {
             console.log("Eroare la incarcarea optiunilor:", err);
         }
     });
-}).catch(err => {
-    console.error("Eroare la conectarea la baza de date:", err.message);
-    console.error("Asigură-te că serverul PostgreSQL este pornit pe portul 5432.");
 });
 
 app.use(function(req,res,next){
     res.locals.optiuniMeniu = obGlobal.optiuniMeniu;
     next();
 })
+
+app.use(session({
+    secret:"abcdefg",
+    resave:true,
+    saveUninitialized:false
+}));
 
 function verificaErori() {
     const caleErori = path.join(__dirname, "resources/json/erori.json");
@@ -250,7 +255,6 @@ function initImagini(){
         imag.fisier=path.join("/", caleGalerie, imag.fisier )
         
     }
-    // console.log(obGlobal.obImagini)
 }
 initImagini();
 
@@ -284,6 +288,38 @@ for(let folder of vector_foldere){
         fs.mkdirSync(caleFolder);
     }
 }
+
+function stergeBackupVechi(T_minute) {
+    function parcurgeSiSterge(folder) {
+        if (!fs.existsSync(folder)) return;
+        let fisiere = fs.readdirSync(folder);
+        let timpCurent = new Date().getTime();
+        
+        for (let fisier of fisiere) {
+            let caleFisier = path.join(folder, fisier);
+            let stat = fs.statSync(caleFisier);
+            
+            if (stat.isDirectory()) {
+                parcurgeSiSterge(caleFisier);
+            } else {
+                if (timpCurent - stat.mtimeMs > T_minute * 60 * 1000) {
+                    try {
+                        fs.unlinkSync(caleFisier);
+                        console.log(`Fisier de backup sters (vechime > ${T_minute} min): ${caleFisier}`);
+                    } catch(err) {
+                        console.error(`Eroare la stergerea fisierului de backup ${caleFisier}:`, err);
+                    }
+                }
+            }
+        }
+    }
+    
+    setInterval(() => {
+        parcurgeSiSterge(obGlobal.folderBackup);
+    }, 60 * 1000);
+}
+
+stergeBackupVechi(60);
 
 app.use("/resources",express.static(path.join(__dirname,"resources")));
 app.use("/dist",express.static(path.join(__dirname,"node_modules/bootstrap/dist")));
@@ -345,7 +381,7 @@ app.get("/produse",function(req,res){
             afisareaEroare(res,"2");
         }
         else{
-            client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezOptiuni){
+            client.query("select unnest(enum_range(null::tipuri_produse)) as valoare", function(err, rezOptiuni){
                 if (err){
                     afisareEroare(res,2)
                 }

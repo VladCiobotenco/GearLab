@@ -29,6 +29,8 @@
     "bootstrap": "^5.3.8",
     "ejs": "^5.0.2",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "formidable": "^3.5.4",
     "fs": "^0.0.1-security",
     "is-glob": "^4.0.3",
     "node-addon-api": "^8.7.0",
